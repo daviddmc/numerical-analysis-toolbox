@@ -8,16 +8,16 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 ### Linear System
 
 - [ ] matrix functions
-    - [ ] norm (1,2,infinity,Fibonacci)
-    - [ ] condition number
+    - [x] norm (1,2,infinity,Fibonacci)
+    - [x] condition number
 - [ ] Gaussian elimination
-    - [ ] Gaussian elimination with partial pivoting
+    - [x] Gaussian elimination with partial pivoting
     - [ ] LU (Doolittle) decomposition with partial pivoting
     - [ ] Thomas method
     - [ ] inverse matrix
 - [ ] Cholesky method
-    - Cholesky decomposition
-    - LDL decomposition
+    - [ ] Cholesky decomposition
+    - [ ] LDL decomposition
 - [ ] Jacobi iterative method
 - [ ] Gauss-Seidel iterative method
 - [ ] succesise over - relaxation method
@@ -62,3 +62,5 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 ## reference
 
 - 数值分析基础(第二版),关治,陆金甫. Fundamentals of Numerical Analysis (Second Edition), Zhi Guan, Jinfu Lu.
+- Numerical Analysis, Rainer Kress
+- An Introduction to Numerical Analysis, Endre suli and David F. Mayers
