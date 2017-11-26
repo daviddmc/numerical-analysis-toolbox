@@ -18,12 +18,12 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] Cholesky method
     - [x] Cholesky decomposition
     - [x] LDL decomposition
-- [ ] Jacobi iterative method
-- [ ] Gauss-Seidel iterative method
-- [ ] succesise over - relaxation method
+- [x] Jacobi iterative method
+- [x] Gauss-Seidel iterative method
+- [x] succesise over - relaxation method
 - [ ] conjugate gradient method
     - [ ] steepest descent
-    - [ ] conjugate gradient
+    - [x] conjugate gradient
     - [ ] preconditioned conjugate gradient 
 
 ### Nonlinear Equation and System
