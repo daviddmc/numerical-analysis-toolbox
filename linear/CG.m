@@ -43,7 +43,7 @@ function x = CG( A, b ,MaxIter, x0, tolerance)
     p = r;
     
     for k = 1 : MaxIter
-        if(Norm(r) < tolerance)
+        if(max(abs(r)) < tolerance)
             break;
         end
         alpha = (r'*r) ./ (p'*(A*p));
