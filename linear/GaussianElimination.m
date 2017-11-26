@@ -15,7 +15,7 @@ function x = GaussianElimination(A, b)
     if(~iscolumn(b))
         b = b(:);
     end
-    CheckMultiplicationSize(A, b);
+    CheckMultiplicationSize(A,x0,b);
 
     n = length(b);
     x = zeros(n,1);
