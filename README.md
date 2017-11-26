@@ -28,11 +28,8 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### Nonlinear Equation and System
 
-- [ ] bisection method
-- [ ] fixed-point iteration
-- [ ] series acceleration method
-    - [x] Aitken acceleration
-    - [x] Steffensen acceleration
+- [x] bisection method
+- [x] Steffensen acceleration for fixed-point iteration
 - [ ] Newton method
     - [ ] Newton iteration
     - [ ] Newton iteration for multiplicity > 1
