@@ -15,7 +15,7 @@ function x = GaussianElimination(A, b)
     if(~iscolumn(b))
         b = b(:);
     end
-    CheckMultiplicationSize(A,x0,b);
+    CheckMultiplicationSize(A,[],b);
 
     n = length(b);
     x = zeros(n,1);
@@ -23,7 +23,7 @@ function x = GaussianElimination(A, b)
     % elimination
     for c = 1 : n-1
         A_b = FindPivot(A_b, c);
-        A_b(c+1:end, c:end) = A_b(c+1:end, c:end) - bsxfun(@times, A_b(c+1:end,c), A_b(c, c:end)) / A_b(c,c);
+        A_b(c+1:end, c:end) = A_b(c+1:end, c:end) - bsxfun(@times, A_b(c+1:end,c)/A_b(c,c), A_b(c, c:end));
     end
     % substitution
     x(n) = A_b(n, n+1)/A_b(n,n);

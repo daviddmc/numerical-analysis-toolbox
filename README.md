@@ -12,7 +12,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] condition number
 - [ ] Gaussian elimination
     - [x] Gaussian elimination with partial pivoting
-    - [ ] LU (Doolittle) decomposition with partial pivoting
+    - [x] LU (Doolittle) decomposition with partial pivoting
     - [ ] Thomas method
     - [ ] inverse matrix
 - [ ] Cholesky method
