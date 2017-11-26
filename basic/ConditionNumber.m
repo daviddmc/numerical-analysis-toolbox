@@ -12,5 +12,5 @@ if(~exist('type', 'var'))
     type = 2;
 end
 
-condNum = Norm(X, type) * Norm(inv(X), type);
+condNum = Norm(X, type) * Norm(Inverse(X), type);
 

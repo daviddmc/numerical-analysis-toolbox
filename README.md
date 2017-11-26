@@ -7,17 +7,17 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### Linear System
 
-- [ ] matrix functions
+- [x] matrix functions
     - [x] norm (1,2,infinity,Fibonacci)
     - [x] condition number
-- [ ] Gaussian elimination
+- [x] Gaussian elimination
     - [x] Gaussian elimination with partial pivoting
     - [x] LU (Doolittle) decomposition with partial pivoting
-    - [ ] Thomas method
-    - [ ] inverse matrix
-- [ ] Cholesky method
-    - [ ] Cholesky decomposition
-    - [ ] LDL decomposition
+    - [x] Thomas method
+    - [x] inverse (Gauss-Jordan method with pivoting)
+- [x] Cholesky method
+    - [x] Cholesky decomposition
+    - [x] LDL decomposition
 - [ ] Jacobi iterative method
 - [ ] Gauss-Seidel iterative method
 - [ ] succesise over - relaxation method
