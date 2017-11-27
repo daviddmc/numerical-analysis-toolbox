@@ -61,3 +61,4 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - 数值分析基础(第二版),关治,陆金甫. Fundamentals of Numerical Analysis (Second Edition), Zhi Guan, Jinfu Lu.
 - Numerical Analysis, Rainer Kress
 - An Introduction to Numerical Analysis, Endre suli and David F. Mayers
+- Applied Numerical Linear Algebra, James W. Demmel
