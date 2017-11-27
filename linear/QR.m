@@ -12,8 +12,33 @@ if(~exist('method','var'))
 end
 
 if(strcmp(method, 'GramSchmidt'))
+    r = size(A, 1);
+    Q = zeros(r);
+    for ii = 1:r
+        u = A(:, ii);
+        for jj = 1 : ii - 1
+            u = u - (u' * Q(:,jj)) * Q(:, jj);
+        end
+        Q(:, ii) = u / Norm(u);
+    end
+    R = Q' * A;
     
 elseif(strcmp(method, 'Givens'))
+    r = size(A, 1);
+    Q = eye(r);
+    R = A;
+    for ii = 1 : r-1
+        for k = ii+1 : r
+           t = sqrt(R(ii, ii)^2 + R(k, ii)^2);
+           if(t == 0)
+               continue
+           end
+           c = R(ii,ii) / t;
+           s = R(k, ii) / t;
+           R([ii, k], :) = [c, s; -s, c] * R([ii, k], :);
+           Q(:, [ii, k]) = Q(:, [ii, k]) * [c, -s; s, c]; 
+        end
+    end
     
 elseif(strcmp(method,'Householder'))
     r = size(A, 1);
