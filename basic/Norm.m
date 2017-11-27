@@ -22,7 +22,7 @@ if(type == 1)
     end
 elseif(type == 2)
     if(isvector(X))
-        normX = sqrt(sum(X.^2));
+        normX = sqrt(sum(abs(X).^2));
     else
         normX = norm(X, 2);
     end
@@ -33,7 +33,7 @@ elseif(type == inf)
         normX = max(sum(abs(X), 2));
     end
 elseif(type == 'fro')
-    normX = sqrt(sum(sum(X.^2)));
+    normX = sqrt(sum(sum(abs(X).^2)));
 else
     error('type of norm should be 1, 2, inf or ''fro''.');
 end

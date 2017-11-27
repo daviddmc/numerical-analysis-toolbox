@@ -60,9 +60,11 @@ elseif(strcmp(method, 'Givens'))
            c = R(ii,ii) / t;
            s = R(k, ii) / t;
            R([ii, k], :) = [c, s; -s, c] * R([ii, k], :);
-           Q(:, [ii, k]) = Q(:, [ii, k]) * [c, -s; s, c]; 
+           Q([ii, k], :) = [c, s; -s, c] * Q([ii, k], :);
+           %Q(:, [ii, k]) = Q(:, [ii, k]) * [c, -s; s, c]; 
         end
     end
+    Q = Q';
     
 elseif(strcmp(method,'Householder'))
     r = size(A, 1);
@@ -71,10 +73,10 @@ elseif(strcmp(method,'Householder'))
     for ii = 1 : r-1
         x = R(ii:end, ii);
         e = zeros(size(x));
-        if(x(1) > 0)
-            e(1) = -Norm(x);
-        else
+        if(x(1) == 0)
             e(1) = Norm(x);
+        else
+            e(1) = -x(1)/abs(x(1)) * Norm(x);
         end
         u = x - e;
         v = u / Norm(u);
