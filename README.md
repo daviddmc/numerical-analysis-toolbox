@@ -18,6 +18,10 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] Cholesky method
     - [x] Cholesky decomposition
     - [x] LDL decomposition
+- [x] QR decomposition
+    - [x] Gram-Schimidt orthogonalization
+    - [x] Givens transformation
+    - [x] Householder transformation
 - [x] Jacobi iterative method
 - [x] Gauss-Seidel iterative method
 - [x] succesise over - relaxation method
@@ -25,6 +29,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [ ] steepest descent
     - [x] conjugate gradient
     - [ ] preconditioned conjugate gradient 
+- [x] least square problem
 
 ### Nonlinear Equation and System
 
@@ -38,7 +43,13 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [ ] Newton method for nonlinear system
 - [ ] quasi-Newton method
 
-### Matrix Egienvalue
+### Eigenvalue and Singular Value
+
+- [x] QR method
+- [x] Rayleigh quotient iteration
+- [x] Jacobi method
+- [x] power method
+- [x] inverse power method
 
 ### Interpolation
 
