@@ -15,19 +15,36 @@ if(strcmp(method, 'GramSchmidt'))
     r = size(A, 1);
     c = size(A, 2);
     if(c < r)
-        error(' numRow must be not more than numCol ')
+        %error(' numRow must be not more than numCol ')
     end
-    Q = zeros(r);
-    R = zeros(size(A));
-    for ii = 1:r
-        u = A(:, ii);
-        for jj = 1 : ii - 1
-            R(jj, ii) = Q(:, jj)' * u; 
-            u = u - R(jj, ii) * Q(:, jj);
+    
+    if(r >= c)
+        Q = zeros(size(A));
+        R = zeros(c);
+        for ii = 1 : c
+            u = A(:, ii);
+            for jj = 1 : ii - 1
+                R(jj, ii) = Q(:, jj)' * u; 
+                u = u - R(jj, ii) * Q(:, jj);
+            end
+            R(ii, ii) = Norm(u);
+            Q(:, ii) = u / R(ii, ii);
         end
-        R(ii, ii) = Norm(u);
-        Q(:, ii) = u / R(ii, ii);
+    else
+        Q = zeros(r);
+        R = zeros(size(A));
+        for ii = 1 : r
+            u = A(:, ii);
+            for jj = 1 : ii - 1
+                R(jj, ii) = Q(:, jj)' * u; 
+                u = u - R(jj, ii) * Q(:, jj);
+            end
+            R(ii, ii) = Norm(u);
+            Q(:, ii) = u / R(ii, ii);
+        end
+        R(:, r+1:c) = Q' * A(:, r+1:c);
     end
+
     %R = Q' * A;
     
 elseif(strcmp(method, 'Givens'))
