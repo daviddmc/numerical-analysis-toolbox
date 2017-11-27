@@ -43,7 +43,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 ### Interpolation
 
 - [ ] polynomial interpolation
-    - [ ] Lagrange interpolation
+    - [x] Lagrange interpolation
     - [ ] Newton interpolation
 - [ ] Hermite interpolation
 
