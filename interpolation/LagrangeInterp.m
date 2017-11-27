@@ -1,21 +1,12 @@
-function L = LagrangeInterp(x, y)
+function yq = LagrangeInterp(X, y, Xq)
+% 1-D polymonial interpolation using Lagrange method
+% 
 
-    L = @(xq)lagrangeInterp(y, x, xq);
-
-end
-
-function Yq = lagrangeInterp(Y, X, Xq)
-    Yq = zeros(size(Xq));
-    for i = 1 : length(Yq)
-        xq = Xq(i);
-        for j = 1 : length(X)
-            l = 1;
-            for k = 1 : length(X)
-                if(j ~= k)
-                    l = l * (xq - X(k)) / (X(j) - X(k));
-                end
-            end
-            Yq(i) = Yq(i) + l * Y(j);
-        end
+yq = zeros(size(Xq));
+for i = 1 : length(yq)
+    xq = Xq(i);
+    for j = 1 : length(X)
+        l = (xq - X) ./ (X(j) - X);
+        yq(i) = yq(i) + prod(l([1:j-1 j+1:end])) * y(j);
     end
 end
