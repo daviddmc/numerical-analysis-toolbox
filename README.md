@@ -60,7 +60,21 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### Function Approximation
 
+- [x] orthogonal polynomials
+    - [x] Legendre
+    - [x] Laguerre
+    - [x] Hermite
+    - [x] Chebyshev
+
 ### Numerical Integration and Differentiation
+
+- [x] trapezoid
+- [x] Simpson 
+- [ ] Gaussian quadrature
+    - [x] Gauss-Legendre
+    - [x] Gauss-Chebyshev
+    - [ ] Gauss-Hermite
+    - [ ] Gauss-Laguerre
 
 ### Ordinary Differential Equation
 

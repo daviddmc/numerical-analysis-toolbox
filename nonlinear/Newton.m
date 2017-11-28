@@ -15,6 +15,9 @@ if(~exist('tolerance','var') || isempty(tolerance))
     tolerance = 1e-6;
 end
 
+if(df(x0) == 0)
+    x0 = x0 + 1e-1 * rand(1);
+end
 
 for k = 1 : maxIter
     x = x0 - f(x0) / df(x0);
