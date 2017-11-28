@@ -53,9 +53,10 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### Interpolation
 
-- [ ] polynomial interpolation
+- [x] polynomial interpolation
     - [x] Lagrange interpolation
-    - [ ] Newton interpolation
+    - [x] Newton interpolation
+    - [x] Chebyshev interpolation
 - [ ] Hermite interpolation
 
 ### Function Approximation
