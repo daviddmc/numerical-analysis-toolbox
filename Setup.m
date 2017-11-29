@@ -6,3 +6,4 @@ addpath interpolation
 addpath linear
 addpath nonlinear
 addpath approximation
+addpath ode

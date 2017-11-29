@@ -66,6 +66,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Laguerre
     - [x] Hermite
     - [x] Chebyshev
+- [x] polynomial fit
 
 ### Numerical Integration and Differentiation
 
@@ -76,9 +77,15 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Gauss-Chebyshev
     - [ ] Gauss-Hermite
     - [ ] Gauss-Laguerre
+- [x] Romberg
 
 ### Ordinary Differential Equation
 
+- [x] Runge - Kutta method
+
+---
+
+## demo
 
 ---
 
