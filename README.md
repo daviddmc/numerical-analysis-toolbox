@@ -78,8 +78,8 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [ ] Gaussian quadrature
     - [x] Gauss-Legendre
     - [x] Gauss-Chebyshev
-    - [ ] Gauss-Hermite
-    - [ ] Gauss-Laguerre
+    - [x] Gauss-Hermite
+    - [x] Gauss-Laguerre
 - [x] Romberg
 
 ### Ordinary Differential Equation
