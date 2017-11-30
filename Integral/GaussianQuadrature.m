@@ -15,13 +15,22 @@ if(strcmp(method, 'Legendre'))
 elseif(strcmp(method, 'Chebyshev'))
     r = 0 : n;
     r = cos(pi / (2*n+2) * (2*r + 1));
-    r = (a + b) / 2 + (b - a) / 2 * r;
     I = sum(f(r));
-    I = pi*(b - a) / (2*(n+1)) * I;
-    
+    I = pi / (n+1) * I;
 elseif(strcmp(method, 'Laguerre'))
-    
+    p = Laguerre(n + 1);
+    pp = p(end:-1:1);
+    pp = pp(1 : n+1) .* (n+1 : -1: 1);
+    r = PolyRealRoot(p);
+    A = factorial(n+1)^2 ./(r .* polyval(pp, r).^2);
+    I = A * f(r)';
 elseif(strcmp(method, 'Hermite'))
+    p = Hermite(n + 1);
+    pp = p(end:-1:1);
+    pp = pp(1 : n+1) .* (n+1 : -1: 1);
+    r = PolyRealRoot(p);
+    A = factorial(n+1) * 2^(n+2) * sqrt(pi) ./ polyval(pp, r).^2;
+    I = A * f(r)';
     
 else
     error('method');

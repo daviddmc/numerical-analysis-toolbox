@@ -26,7 +26,7 @@ for k = n : -1 : 1
 end
 
 p = a;
-pp = p(1 : k) .* (k : -1: 1);
+pp = p(1 : n) .* (n : -1: 1);
 f = @(x)(PolyValue(p , x));
 df = @(x)(PolyValue(pp, x));
 for ii = 1 : length(r)
