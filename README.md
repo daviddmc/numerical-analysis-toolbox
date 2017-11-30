@@ -35,9 +35,9 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 - [x] bisection method
 - [x] Steffensen acceleration for fixed-point iteration
-- [ ] Newton method
+- [x] Newton method
     - [x] Newton iteration
-    - [ ] Newton iteration for multiplicity > 1
+    - [x] Newton iteration for multiplicity > 1
 - [x] secant method
 - [x] Brent method
 - [ ] fixed-point iteration for nonlinear system
