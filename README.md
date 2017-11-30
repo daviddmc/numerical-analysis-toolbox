@@ -90,7 +90,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### Optimization
 
-- [ ] Nelder - Mead
+- [x] Nelder - Mead
 
 ---
 
