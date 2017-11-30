@@ -8,3 +8,4 @@ addpath nonlinear
 addpath approximation
 addpath ode
 addpath stochastic
+addpath optimization

@@ -88,6 +88,10 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 - [x] linear congruential generator
 
+### Optimization
+
+- [ ] Nelder - Mead
+
 ---
 
 ## demo
