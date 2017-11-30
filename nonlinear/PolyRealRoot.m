@@ -13,7 +13,7 @@ for k = n : -1 : 1
     
     [z, flag] = Newton( @(x)(PolyValue(p , x)), ...
         @(x)(PolyValue(pp, x)), ...
-        z, 20, 1e-6);
+        z, 10, 20, 1e-6);
     
     p = filter(1,[1 -z],p);
     p(end) = [];
@@ -30,7 +30,7 @@ pp = p(1 : n) .* (n : -1: 1);
 f = @(x)(PolyValue(p , x));
 df = @(x)(PolyValue(pp, x));
 for ii = 1 : length(r)
-    r(ii) = Newton(f,df,r(ii),5, 1e-10);
+    r(ii) = Newton(f,df,r(ii),5,5, 1e-10);
 end
 
 end

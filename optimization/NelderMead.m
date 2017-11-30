@@ -61,7 +61,7 @@ for i = 1 : maxIter
     x = x(:, r);
     if(y(end) - y(1) < epsilon)
         xo = bsxfun(@minus, x(:,2:end), x(:,1));
-        if(det(xo) < delta * fac)
+        if(abs(det(xo)) < delta * fac)
             x = x(:, 1);
             y = y(1);
             break;

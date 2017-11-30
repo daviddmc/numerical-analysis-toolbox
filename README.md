@@ -106,4 +106,5 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - Numerical Analysis, Rainer Kress
 - An Introduction to Numerical Analysis, Endre suli and David F. Mayers
 - Applied Numerical Linear Algebra, James W. Demmel
-- Numberical Analysis (2nd edition), Timothy Sauer
+- Numerical Analysis (2nd edition), Timothy Sauer
+- Numerical Analysis (9th edition), Richard L. Burden, J. Douglas Faires
