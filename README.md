@@ -84,6 +84,10 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 - [x] Runge - Kutta method
 
+### Stochastic method
+
+- [x] linear congruential generator
+
 ---
 
 ## demo
@@ -96,3 +100,4 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - Numerical Analysis, Rainer Kress
 - An Introduction to Numerical Analysis, Endre suli and David F. Mayers
 - Applied Numerical Linear Algebra, James W. Demmel
+- Numberical Analysis (2nd edition), Timothy Sauer
