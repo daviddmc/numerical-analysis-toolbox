@@ -38,7 +38,8 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [ ] Newton method
     - [x] Newton iteration
     - [ ] Newton iteration for multiplicity > 1
-    - [x] secant method
+- [x] secant method
+- [x] Brent method
 - [ ] fixed-point iteration for nonlinear system
 - [ ] Newton method for nonlinear system
 - [ ] quasi-Newton method
