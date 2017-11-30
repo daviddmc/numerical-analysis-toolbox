@@ -5,7 +5,7 @@ function x = LCG( n, a, b, m, seed, interval )
 m = 2147483647; %2^31 -1 
 a = 16807;
 b = 0;
-seed = mod(round(100 * cputime), m);
+seed = mod(round(now * 1000000), m);
 interval = [0, 1];
 
 x = zeros(n,1);
