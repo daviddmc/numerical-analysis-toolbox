@@ -76,6 +76,9 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Hermite
     - [x] Chebyshev
 - [x] polynomial fit
+- [x] fast Fourier transform
+    - [x] base 2
+    - [x] base 3
 
 ### Numerical Integration and Differentiation
 
@@ -90,7 +93,12 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### Ordinary Differential Equation
 
+- [x] Euler method
 - [x] Runge - Kutta method
+    - [x] 2 order RK (midepoint method)
+    - [x] 4 order RK
+    - [x] Runge - Kutta - Fehlberg
+- [x] Adams-Bashforth four-step method with predictor-corrector
 
 ### Stochastic method
 
