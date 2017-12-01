@@ -55,12 +55,18 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 ### Interpolation
 
 - [x] polynomial interpolation
-    - [x] Lagrange interpolation
-    - [x] Newton interpolation
+    - [x] Lagrange polynomial
+    - [x] Newton polynomial
+    - [x] Neville algorithm
     - [x] Chebyshev interpolation
-- [ ] Hermite interpolation
+- [x] Hermite interpolation
+    - [x] Lagrange polynomial
+    - [x] Lagrange polynomial
 - [x] nearest interpolation
 - [x] linear interpolation
+- [ ] cubic spline interpolation
+    -[x] natural end conditions
+    -[ ] not-a-knot end conditions
 
 ### Function Approximation
 
@@ -75,7 +81,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 - [x] trapezoid
 - [x] Simpson 
-- [ ] Gaussian quadrature
+- [x] Gaussian quadrature
     - [x] Gauss-Legendre
     - [x] Gauss-Chebyshev
     - [x] Gauss-Hermite
