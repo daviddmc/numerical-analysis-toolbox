@@ -12,7 +12,7 @@ label = {'$f(x)=\frac{1}{1+25x^2}$'};
 for n = ns
     x = linspace(-1,1,n);
     y = f(x);
-    yq = LagrangeInterp(x,y,xq);
+    yq = PolyInterp(x,y,xq);
     plot(xq, yq);
     label = [label sprintf('$n=%d$', n)];
 end

@@ -4,7 +4,7 @@ function yq = ChebyshevInterp( f, n ,a, b, xq)
 
 x = (b+a)/2 + (b-a)/2 * cos((2*(1:n)-1) * (pi/2/n));
 y = f(x);
-yq = NewtonInterp(x, y, xq);
+yq = PolyInterp(x, y, xq);
 
 
 end

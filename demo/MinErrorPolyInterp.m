@@ -10,7 +10,7 @@ hold on
 
 x = linspace(-1,1,n);
 y = f(x);
-yq = LagrangeInterp(x,y,xq);
+yq = PolyInterp(x,y,xq);
 plot(xq, yq);
 
 yq = ChebyshevInterp(f, n, -1, 1, xq);
