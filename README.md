@@ -24,7 +24,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Householder transformation
 - [x] Jacobi iterative method
 - [x] Gauss-Seidel iterative method
-- [x] succesise over - relaxation method
+- [x] succesise over - relaxation method (SOR)
 - [ ] conjugate gradient method
     - [ ] steepest descent
     - [x] conjugate gradient
@@ -103,6 +103,10 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 ---
 
 ## demo
+
+- Runge effect
+- Minimize error of polynomial interpolation using Chebyshev interpolation
+- optimal relaxation factor for SOR
 
 ---
 
