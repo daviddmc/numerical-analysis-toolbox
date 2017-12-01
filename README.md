@@ -64,9 +64,9 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Lagrange polynomial
 - [x] nearest interpolation
 - [x] linear interpolation
-- [ ] cubic spline interpolation
+- [x] cubic spline interpolation
     -[x] natural end conditions
-    -[ ] not-a-knot end conditions
+    -[x] not-a-knot end conditions
 
 ### Function Approximation
 
