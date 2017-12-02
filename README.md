@@ -100,7 +100,13 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Runge - Kutta - Fehlberg
 - [x] Adams-Bashforth four-step method with predictor-corrector
 
-### Stochastic method
+### Partial Differential Equation
+
+- [ ] Poisson equation
+- [ ] heat equation
+- [ ] wave equation
+
+### Stochastic Method
 
 - [x] linear congruential generator
 

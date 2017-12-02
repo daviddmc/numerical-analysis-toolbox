@@ -9,3 +9,4 @@ addpath approximation
 addpath ode
 addpath stochastic
 addpath optimization
+addpaht pde
