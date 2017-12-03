@@ -1,8 +1,15 @@
 function A = Inverse( A )
-% Gauss-Jordan method with pivot
+% Inverse   Matrix inverse.
+% 
+%   Inverse(A) is the inverse of the square matrix A calcualted by
+%   Gauss-Jordan method with complete pivoting.
+%
+%   See also
 
-n = size(A, 1);
+%   Copyright 2017 Junshen Xu
+
 CheckSquareMatrix(A);
+n = size(A, 1);
 rowSwap = zeros(2, n);
 colSwap = zeros(2, n);
 
@@ -15,6 +22,10 @@ for k = 1 : n
     
     A([rowSwap(1,k) rowSwap(2,k)], :) = A([rowSwap(2,k) rowSwap(1,k)], :);
     A(:, [colSwap(1,k) colSwap(2,k)]) = A(:, [colSwap(2,k) colSwap(1,k)]);
+    
+    if(A(k, k) == 0)
+        error('Matrix is singular to working precision');
+    end
     
     a = 1 / A(k, k);
     aC = A(k,:) * a;

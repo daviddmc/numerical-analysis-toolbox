@@ -1,35 +1,54 @@
-function [L, D] = Cholesky(A)
-% Cholesky decomposition
-% L * L^T = A or L * D * L^T = A
-% input
-% A
-% output
-% L
-% D
+function L = Cholesky(A, shape)
+%Cholesky   Cholesky decomposition.
+%   Cholesky(A) uses only the diagnoal and lower triangle of A. The upper 
+%   triangle is assumed to be the (complex conjugate) transpose of the 
+%   lower triangle. If A is positive definite, then L = Cholesky(A)
+%   produces and lower triangular L so that L*L' = A. If A is not positive
+%   definite, an error message is printed.
+%
+%   R = Cholesky(A, 'upper') uses ony the diagonal and the upper triangle
+%   of A to produce a upper triangular R so that R'*R = A. If A is not
+%   positive definite, an error message is printed.
+% 
+%   See also
+
+%   Copyright 2017 Junshen Xu
 
 CheckSquareMatrix(A, 'A');
 n = size(A, 1);
 
-if nargout > 1
-    L = eye(n);
-    D = zeros(n, 1);
-    D(1) = A(1,1);
-    T = zeros(size(A));
-    for ii = 2 : n
-        for jj = 1 : ii - 1
-            T(ii, jj) = A(ii, jj) - T(ii, 1:jj-1) * L(jj, 1:jj-1)';
-            L(ii, jj) = T(ii, jj) / D(jj);
-        end
-        D(ii) = A(ii, ii) - T(ii, 1:ii-1) * L(ii, 1:ii-1)';
-    end
-else
-    L = zeros(size(A));
+if(~exist('shape','var'))
+    shape = 'lower';
+end
+
+L = zeros(size(A));
+
+if(strcmpi(shape, 'lower'))
     for jj = 1 : n
-        L(jj, jj) = sqrt(A(jj, jj) - sum(L(jj,1:jj-1).^2));
+        temp = A(jj, jj) - sum(abs(L(jj,1:jj-1)).^2);
+        if(~isreal(temp) || temp <= 0)
+            error('Matrix must be positive definite.')
+        else
+            L(jj, jj) = sqrt(temp);
+        end
         for ii = jj+1 : n
             L(ii, jj) = (A(ii, jj) - L(ii,1:jj-1) * L(jj,1:jj-1)') / L(jj,jj);
         end
     end
+elseif(strcmpi(shape, 'upper'))
+    for jj = 1 : n
+        temp = A(jj, jj) - sum(abs(L(1:jj-1,jj)).^2);
+        if(~isreal(temp) || temp <= 0)
+            error('Matrix must be positive definite.')
+        else
+            L(jj, jj) = sqrt(temp);
+        end
+        for ii = jj+1 : n
+            L(jj, ii) = (A(jj, ii) - L(1:jj-1,jj)' * L(1:jj-1,ii)) / L(jj,jj);
+        end
+    end
+else
+    error('Shape flag must be ''upper'' or ''lower''.');
 end
 
 
