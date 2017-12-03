@@ -1,5 +1,5 @@
 function x = Steffensen(phi, x0, maxIter, tolerance)
-% Steffensen acceleration for fixed-point iteration
+% Steffensen    Accelerate convergence fixed-point iteration.
 % input
 % phi : iteration function
 % x0 : initail value of x, default: 0
@@ -31,6 +31,10 @@ for k = 1 : maxIter
         break;
     end
     x = x_new;
+end
+
+if(k == maxIter)
+    warning(['failed to converge in ', num2str(1000), ' iterations.']);
 end
 
 
