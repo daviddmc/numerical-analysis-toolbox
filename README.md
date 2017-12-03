@@ -51,6 +51,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] Jacobi method
 - [x] power method
 - [x] inverse power method
+- [ ] singular value decomposition
 
 ### Interpolation
 
@@ -132,3 +133,4 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - Applied Numerical Linear Algebra, James W. Demmel
 - Numerical Analysis (2nd edition), Timothy Sauer
 - Numerical Analysis (9th edition), Richard L. Burden, J. Douglas Faires
+- Matrix Computation (4th edition), Gene H. Golub, Charles F. Van Loan
