@@ -7,7 +7,7 @@ if(~ismatrix(A) || size(A,1) < size(A,2))
 end
 
 if(strcmp(method, 'normal'))
-   X = CholeskySolve(A' * A, A' * B);
+   X = PDSolve(A' * A, A' * B);
 elseif(strcmp(method, 'QR'))
    [Q, R] = QR(A, 'GramSchmidt');
    X = TriangleSolve(R, Q'*B, 'u');

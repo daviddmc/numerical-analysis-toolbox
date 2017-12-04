@@ -1,5 +1,8 @@
-function X = CholeskySolve(A, B, method)
-% 
+function X = PDSolve(A, B, method)
+% PDSolve Solve positive definite linear system
+%   X = PDSolve(A, B) solves the positive definite linear system A*X=B 
+%   using LDL dcomposition. Since A is assumed to be symmetric positive 
+%   definite, only the diagnoal and lower triangle of A will be used. 
 
 CheckSquareMatrix(A);
 CheckMultiplicationSize(A,[],B);

@@ -24,7 +24,7 @@ function [X, flag, iter, res] = JacIter(A, B, tol, maxIter, X0)
 %   [X, FLAG, ITER, RES] = JacIter(A, B, ...) also returns a vector of the
 %   maximum of residual at each iteration. 
 %
-%   See also
+%   See also GSIter, SOR, SSOR
 
 %   Copyright 2017 Junshen Xu
 

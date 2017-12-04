@@ -15,7 +15,9 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] LU (Doolittle) decomposition with partial pivoting
     - [x] Thomas method
     - [x] inverse (Gauss-Jordan method with pivoting)
-- [x] Cholesky decomposition
+- [x] decomposition for symmetric positive definite matrix
+    - [x] Cholesky decomposition
+    - [x] LDL decomposition
 - [x] QR decomposition
     - [x] Gram-Schimidt orthogonalization
     - [x] Givens transformation

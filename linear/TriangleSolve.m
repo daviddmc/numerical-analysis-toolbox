@@ -19,11 +19,11 @@ if(~exist('shape','var'))
     shape = 'lower';
 end
 
-if(strcmpi(shape,'lower'))
+if(strncmpi(shape,'lower', 1))
     for ii = 1 : n
         X(ii, :) = (B(ii, :) - A(ii, 1:ii-1) * X(1:ii-1, :)) / A(ii,ii);
     end
-elseif(strcmpi(shape, 'upper'))
+elseif(strncmpi(shape, 'upper', 1))
     for ii = n : -1 : 1
         X(ii, :) = (B(ii, :) - A(ii, ii+1:end) * X(ii+1:end, :)) / A(ii,ii);
     end
