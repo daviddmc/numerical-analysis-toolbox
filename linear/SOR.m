@@ -29,13 +29,17 @@ function [X, flag, iter, res] = SOR(A, B, omega, tol, maxIter, X0)
 %   Copyright 2017 Junshen Xu
 
 CheckSquareMatrix(A);
-
+n = size(A, 1);
 if(~exist('maxIter', 'var') || isempty(maxIter))
-    maxIter = 10;
+    maxIter = max(20,n);
 end
 
 if(~exist('X0','var') || isempty(X0))
     X0 = zeros(size(B));
+end
+
+if(omega < 0 || omega > 2)
+    warning('omega out of [0, 2] may lead to divergence.')
 end
 
 CheckMultiplicationSize(A,X0, B);

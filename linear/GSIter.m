@@ -29,9 +29,9 @@ function [X, flag, iter, res] = GSIter(A, B, tol, maxIter, X0)
 %   Copyright 2017 Junshen Xu
 
 CheckSquareMatrix(A);
-
+n = size(A, 1);
 if(~exist('maxIter', 'var') || isempty(maxIter))
-    maxIter = 10;
+    maxIter = max(20, n);
 end
 
 if(~exist('X0','var') || isempty(X0))
@@ -44,7 +44,7 @@ if(~exist('tol', 'var') || isempty(tol))
     tol = 1e-6;
 end
 
-n = size(A, 1);
+
 if(min(abs(diag(A))) < eps)
     flag = 2;
     X = X0;
@@ -63,6 +63,7 @@ for iter = 1 : maxIter
     X = BG * X0 + FG;
     res(iter) = max(abs(X(:) - X0(:))); 
     if(res(iter) < tol)
+        flag = 0;
         break;
     end
     X0 = X;

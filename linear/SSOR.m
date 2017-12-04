@@ -30,9 +30,9 @@ function [X, flag, iter, res] = SSOR(A, B, omega, tol, maxIter, X0)
 %   Copyright 2017 Junshen Xu
 
 CheckSquareMatrix(A);
-
+n = size(A, 1);
 if(~exist('maxIter', 'var') || isempty(maxIter))
-    maxIter = 10;
+    maxIter = max(20,n);
 end
 
 if(~exist('X0','var') || isempty(X0))
@@ -43,6 +43,10 @@ CheckMultiplicationSize(A,X0, B);
 
 if(~exist('tol', 'var') || isempty(tol))
     tol = 1e-6;
+end
+
+if(omega < 0 || omega > 2)
+    warning('omega out of [0, 2] may lead to divergence.')
 end
 
 if(min(abs(diag(A))) < eps)
@@ -68,8 +72,8 @@ for iter = 1 : maxIter
     X = BSOR2 * X  + FSOR2;
     res(iter) = max(abs(X(:) - X0(:))); 
     if(res(iter) < tol)
-        break;
         flag = 0;
+        break;
     end
     X0 = X;
 end

@@ -29,9 +29,10 @@ function [X, flag, iter, res] = JacIter(A, B, tol, maxIter, X0)
 %   Copyright 2017 Junshen Xu
 
 CheckSquareMatrix(A);
+n = size(A, 1);
 
 if(~exist('maxIter', 'var') || isempty(maxIter))
-    maxIter = 10;
+    maxIter = max(20, n);
 end
 
 if(~exist('X0','var') || isempty(X0))
@@ -53,7 +54,6 @@ if(min(abs(D)) < eps)
     return
 end
 flag = 1;
-n = size(A, 1);
 BJ = eye(n);
 FJ = B;
 for ii = 1 : n
