@@ -2,7 +2,6 @@ function A = QRIteration( A , shift)
 %QRITERATION Summary of this function goes here
 %   Detailed explanation goes here
 
-
 n = size(A, 1);
 Ishift = shift * eye(n);
 %{

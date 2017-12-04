@@ -7,7 +7,7 @@ function [X, flag, iter, res] = SOR(A, B, omega, tol, maxIter, X0)
 %   is [] then SOR uses the default, 1e-6.
 %
 %   X = SOR(A, B, OMEGA, TOL, MAXITER) specifies the maximum number of
-%   iterations. If MAXITER is [] then SOR uses the default, min(N, 20).
+%   iterations. If MAXITER is [] then SOR uses the default, max(N, 20).
 %
 %   X = SOR(A, B, OMEGA, TOL, MAXITER, X0) specifies the initial guess. If
 %   X0 is [] then SOR uses the default, an all zero vector.

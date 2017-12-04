@@ -1,6 +1,6 @@
 function [L, U, P] = LU(A)
 % LU    lu decomposition.
-%   [L,U] = lu(A) stores an upper triangular matrix in U and a
+%   [L,U] = LU(A) stores an upper triangular matrix in U and a
 %   "psychologically lower triangular matrix" (i.e. a product of lower
 %   triangular and permutation matrices) in L, so that A = L*U. A can be
 %   rectangular.
@@ -33,6 +33,9 @@ for c = 1 : K
     p(:, c) = [idx, c];
     pp([idx, c]) = pp([c, idx]);
     % update L
+    if(abs(U(c,c)) < eps)
+        continue;
+    end
     l = U(c+1:end,c)/ U(c,c);
     L(c+1:end, c) = l;
     % update U

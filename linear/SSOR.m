@@ -4,11 +4,11 @@ function [X, flag, iter, res] = SSOR(A, B, omega, tol, maxIter, X0)
 %   where A is a N-by-N matrix and OMEGA is the relaxation factor. This
 %   method is similar to SOR but will converge faster if A is symmetric.
 %
-%   X = SSOR(A, B, OMEGA, TOL) specifies the tolerance of the method. If TOL 
-%   is [] then SSOR uses the default, 1e-6.
+%   X = SSOR(A, B, OMEGA, TOL) specifies the tolerance of the method. If 
+%   TOL is [] then SSOR uses the default, 1e-6.
 %
 %   X = SSOR(A, B, OMEGA, TOL, MAXITER) specifies the maximum number of
-%   iterations. If MAXITER is [] then SSOR uses the default, min(N, 20).
+%   iterations. If MAXITER is [] then SSOR uses the default, max(N, 20).
 %
 %   X = SSOR(A, B, OMEGA, TOL, MAXITER, X0) specifies the initial guess. If
 %   X0 is [] then SSOR uses the default, an all zero vector.

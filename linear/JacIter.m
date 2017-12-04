@@ -7,7 +7,7 @@ function [X, flag, iter, res] = JacIter(A, B, tol, maxIter, X0)
 %   [] then JacIter uses the default, 1e-6.
 %
 %   X = JacIter(A, B, TOL, MAXITER) specifies the maximum number of
-%   iterations. If MAXITER is [] then JacIter uses the default, min(N, 20).
+%   iterations. If MAXITER is [] then JacIter uses the default, max(N, 20).
 %
 %   X = JacIter(A, B, TOL, MAXITER, X0) specifies the initial guess. If X0
 %   is [] then JacIter uses the default, an all zero vector.

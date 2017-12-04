@@ -7,7 +7,7 @@ function [X, flag, iter, res] = GSIter(A, B, tol, maxIter, X0)
 %   [] then GSIter uses the default, 1e-6.
 %
 %   X = GSIter(A, B, TOL, MAXITER) specifies the maximum number of
-%   iterations. If MAXITER is [] then GSIter uses the default, min(N, 20).
+%   iterations. If MAXITER is [] then GSIter uses the default, max(N, 20).
 %
 %   X = GSIter(A, B, TOL, MAXITER, X0) specifies the initial guess. If X0
 %   is [] then GSIter uses the default, an all zero vector.

@@ -1,5 +1,4 @@
 function [A, Q, V] = BidiagonalReduction( A )
-%
 
 n = size(A, 1);
 if(nargout > 1)
