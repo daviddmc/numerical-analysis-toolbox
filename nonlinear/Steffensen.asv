@@ -43,7 +43,7 @@ if(~exist('tolerance','var') || isempty(tol))
 end
 
 x = x0;
-flag = 1;
+flag = 0;
 if nargout > 3
     xs = zeros(maxIter, 1);
 end
@@ -52,18 +52,13 @@ for iter = 1 : maxIter
     z = phi(y);
     x_new = x - (y-x)^2/(z-2*y+x);
     if(nargout > 3)
-        xs(iter) = x_new;
-    end
+        xs(iter)
     if(abs(x_new - x)<tol)
         x = x_new;
-        flag = 0;
+        flag = 1;
         break;
     end
     x = x_new;
-end
-
-if(nargout > 3)
-    xs = xs(1:iter);
 end
 
 if(iter == maxIter)

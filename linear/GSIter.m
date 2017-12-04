@@ -37,13 +37,14 @@ end
 if(~exist('X0','var') || isempty(X0))
     X0 = zeros(size(B));
 end
+X = X0;
 
 CheckMultiplicationSize(A,X0, B);
 
 if(~exist('tol', 'var') || isempty(tol))
     tol = 1e-6;
 end
-
+tol = max(tol, tol * max(abs(B(:))));
 
 if(min(abs(diag(A))) < eps)
     flag = 2;
@@ -60,13 +61,12 @@ FG = invDL * B;
 res = zeros(maxIter, 1);
 flag = 1;
 for iter = 1 : maxIter
-    X = BG * X0 + FG;
-    res(iter) = max(abs(X(:) - X0(:))); 
+    X = BG * X + FG;
+    res(iter) = max(max(abs(A*X - B)));
     if(res(iter) < tol)
         flag = 0;
         break;
     end
-    X0 = X;
 end
 
 res = res(1:iter);

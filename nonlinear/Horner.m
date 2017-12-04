@@ -9,8 +9,8 @@ function [y, yp] = Horner(p, x)
 %   If X is a matrix or vector, the polynomial is evaluated at all points
 %   in X.
 %
-%   [Y, YP] = Horner(P, X) returns the value of a polynomial P and it's
-%   gradient YP evaluated at X.
+%   [Y, YP] = Horner(P, X) also returns the gradient of polynomial P
+%   evaluated at X.
 %
 %       YP = N*P(1)*X^(N-1) + ... + 2*P(N-1)*X + P(N)
 %

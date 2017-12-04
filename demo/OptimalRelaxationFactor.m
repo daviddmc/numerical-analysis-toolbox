@@ -46,7 +46,7 @@ b = zeros(n^2, 1);
 %% show results
 semilogy(1:iterJac, resJac, 1:iterSOR, resSOR, 1:iterGS, resGS);
 xlabel('\# of iteration', 'Interpreter','latex')
-ylabel('$||x-x^*||_\infty$', 'Interpreter','latex');
+ylabel('$||Ax-b||_\infty$', 'Interpreter','latex');
 legend('Jcobi','SOR','Gauss-Seidel','location','best');
 text(iterJac,resJac(end),['(' num2str(iterJac) ', ' num2str(resJac(end)) ')'],...
     'HorizontalAlignment', 'right');

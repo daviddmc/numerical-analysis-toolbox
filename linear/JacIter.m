@@ -38,6 +38,7 @@ end
 if(~exist('X0','var') || isempty(X0))
     X0 = zeros(size(B));
 end
+X = X0;
 
 CheckMultiplicationSize(A,X0, B);
 
@@ -45,10 +46,11 @@ if(~exist('tol', 'var') || isempty(tol))
     tol = 1e-6;
 end
 
+tol = max(tol, tol * max(abs(B(:))));
+
 D = diag(A);
 if(min(abs(D)) < eps)
     flag = 2;
-    X = X0;
     iter = 0;
     res = [];
     return
@@ -63,13 +65,12 @@ end
 
 res = zeros(maxIter, 1);
 for iter = 1 : maxIter
-    X = BJ * X0 + FJ;
-    res(iter) = max(abs(X(:) - X0(:)));
+    X = BJ * X + FJ;
+    res(iter) = max(max(abs(A*X - B)));
     if(res(iter) < tol)
         flag = 0;
         break;
     end
-    X0 = X;
 end
 
 res = res(1:iter);

@@ -37,6 +37,7 @@ end
 if(~exist('X0','var') || isempty(X0))
     X0 = zeros(size(B));
 end
+X = X0;
 
 if(omega < 0 || omega > 2)
     warning('omega out of [0, 2] may lead to divergence.')
@@ -47,10 +48,10 @@ CheckMultiplicationSize(A,X0, B);
 if(~exist('tol', 'var') || isempty(tol))
     tol = 1e-6;
 end
+tol = max(tol, tol * max(abs(B(:))));
 
 if(min(abs(diag(A))) < eps)
     flag = 2;
-    X = X0;
     iter = 0;
     res = [];
     return
@@ -64,13 +65,12 @@ FSOR = omega * invDL * B;
 flag = 1;
 res = zeros(maxIter,1);
 for iter = 1 : maxIter
-    X = BSOR * X0 + FSOR;
-    res(iter) = max(abs(X(:) - X0(:)));
+    X = BSOR * X + FSOR;
+    res(iter) = max(max(abs(A*X - B)));
     if(res(iter) < tol)
         flag = 0;
         break;
     end
-    X0 = X;
 end
 
 res = res(1 : iter);
