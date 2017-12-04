@@ -3,7 +3,7 @@ function r = PolyRoot( a )
 %   Detailed explanation goes here
 
 n = length(a) - 1;
-a = a(end:-1:1);
+%a = a(end:-1:1);
 p = a;
 r = [];
 z = 0;
