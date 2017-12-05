@@ -51,7 +51,12 @@ end
 flag = 1;
 for iter = 1 : maxIter
     m = real(u' * A * u);
-    u = GaussianElimination(A - m * eye(n), u, 'complete');
+    try
+        u = GaussianElimination(A - m * eye(n), u, 'complete');
+    catch
+        flag = 0;
+        break
+    end
     u = u / Norm(u);
     if(Norm(A*u - m * u) < tol)
         flag = 0;

@@ -11,10 +11,15 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] norm (1,2,infinity,Fibonacci)
     - [x] condition number
 - [x] Gaussian elimination
-    - [x] Gaussian elimination with partial pivoting
-    - [x] LU (Doolittle) decomposition with partial pivoting
-    - [x] Thomas method
-    - [x] inverse (Gauss-Jordan method with pivoting)
+    - [x] without pivoting
+    - [x] with partial pivoting
+    - [x] with complete pivoting
+- [ ] LU (Doolittle) decomposition 
+    - [x] with partial pivoting
+    - [ ] with complete pivoting
+- [x] Thomas method
+- [x] inverse matrix
+    - [x] Gauss-Jordan method with complete pivoting
 - [x] decomposition for symmetric positive definite matrix
     - [x] Cholesky decomposition
     - [x] LDL decomposition
@@ -24,7 +29,9 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Householder transformation
 - [x] Jacobi iterative method
 - [x] Gauss-Seidel iterative method
-- [x] succesise over - relaxation method (SOR)
+- [x] succesise over - relaxation method
+    - [x] SOR
+    - [x] symmetric SOR
 - [ ] conjugate gradient method
     - [ ] steepest descent
     - [x] conjugate gradient
