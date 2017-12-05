@@ -3,6 +3,10 @@ function X = SPDSolve(A, B)
 %   X = PDSolve(A, B) solves the positive definite linear system A*X=B 
 %   using LDL dcomposition with pivoting. A is assumed to be 
 %   symmetric semi-positive definite.
+%
+%   See also GaussElimination, TridiagSolve, TriangleSolve.
+
+%   Copyright 2017 Junshen Xu
 
 CheckSquareMatrix(A);
 CheckMultiplicationSize(A,[],B);

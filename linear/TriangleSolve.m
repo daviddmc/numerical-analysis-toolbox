@@ -6,7 +6,7 @@ function X = TriangleSolve( A, B, shape)
 %   X = TriangleSolve(A, B, 'upper') solves the linear system A*X = B, 
 %   where A is a upper triangle.
 % 
-%   See also
+%   See also GaussElimination, SPDSolver, TridiagSolve.
 
 %   Copyright 2017 Junshen Xu
 

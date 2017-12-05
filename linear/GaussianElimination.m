@@ -10,7 +10,7 @@ function X = GaussianElimination(A, B, pivot)
 %     'partial'  - (default) use the maximum in the column as pivot
 %     'complete' - use the maximnu in the sub-matrix as pivot
 %
-%   See also
+%   See also TridiagSolve, TriangleSolve, SPDSolve.
 
 %   Copyright 2017 Junshen Xu
 

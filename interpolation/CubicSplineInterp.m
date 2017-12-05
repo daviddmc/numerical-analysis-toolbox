@@ -2,7 +2,6 @@ function yq = CubicSplineInterp( x, y, xq, boundary)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
-
 n = length(x);
 if(~exist('boundary', 'var') || isempty(boundary))
     if(n < 4)
@@ -10,6 +9,13 @@ if(~exist('boundary', 'var') || isempty(boundary))
     else
         boundary = 'notaknot';
     end
+end
+
+if(n < 2)
+    error('Too less points.');
+elseif(n < 4 && strcmpi(boundary,'notaknot'))
+    warning('Too less points for not-a-knot end conditions, use natural end condition instead.');
+    boundary = 'natural';
 end
 
 [x, idx] = sort(x);
@@ -24,12 +30,12 @@ alpha = t(2:end) - t(1:end-1);
 alpha = 3 * alpha;
 
 if(strcmpi(boundary, 'notaknot'))
-    c = Thomas([h(1:end-1); -3*(h(end)+h(end-1))*(1+2*h(end)/h(end-1))],...
+    c = TridiagSolve([h(1:end-1); -3*(h(end)+h(end-1))*(1+2*h(end)/h(end-1))],...
         [3*(h(2) - h(1)/h(2)*h(1)); 2*(h(1:end-1)+h(2:end)); 3*(h(end-1) - h(end)/h(end-1)*h(end))],...
         [-3*(h(1)+h(2))*(1+2*h(1)/h(2));h(2:end)],...
         [-3*h(1)/h(2)*alpha(1); alpha ;-3*h(end)/h(end-1)*alpha(end)]);
 elseif(strcmpi(boundary, 'natural'))
-    c = Thomas([h(1:end-1);0], [1; 2*(h(1:end-1)+h(2:end)); 1] ,[0;h(2:end)], [0; alpha ;0]);
+    c = TirdiagSolve([h(1:end-1);0], [1; 2*(h(1:end-1)+h(2:end)); 1] ,[0;h(2:end)], [0; alpha ;0]);
 end
 
 b = t - h .* (c(2:end) + 2*c(1:end-1)) / 3;
