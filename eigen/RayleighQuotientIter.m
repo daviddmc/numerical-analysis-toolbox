@@ -1,6 +1,6 @@
 function [m, u, flag, iter] = RayleighQuotientIter(A, tol, maxIter, u0)
 % RayleighQuotientIter     Rayleigh Quotient iteration method.
-%   M = RayleighQuotientIter(A) tries to find the dominant eigenvalue of a 
+%   M = RayleighQuotientIter(A) tries to find the one eigenvalue of a 
 %   (conjugate) symmetric matrix A.
 %
 %   M = RayleighQuotientIter(A, TOL) specifies the tolerance of the method. 
@@ -12,7 +12,7 @@ function [m, u, flag, iter] = RayleighQuotientIter(A, tol, maxIter, u0)
 %
 %   M = RayleighQuotientIter(A, TOL, MAXITER, U0) specifies the initial 
 %   guess of the eigenvector of the dominant eigenvalue. If U0 is [] then 
-%   RayleighQuotientIter uses the default, an all one vector.
+%   RayleighQuotientIter uses the default, an random vector.
 %
 %   [M, U] = RayleighQuotientIter(A, ...) also returns the corresponding 
 %   eigenvector.
@@ -37,7 +37,7 @@ if(~exist('maxIter', 'var') || isempty(maxIter))
 end
 
 if(~exist('u0','var') || isempty(u0))
-    u0 = ones(size(A, 1), 1);
+    u0 = rand(size(A, 1), 1);
 end
 
 u = u0 / Norm(u0);

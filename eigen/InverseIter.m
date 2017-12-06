@@ -88,7 +88,6 @@ for iter = 1 : maxIter
     [~, idx] = max(abs(v));
     m = v(idx);
     if(max(abs(v - m*u)) < tol)
-        max(abs(v - m*u))
         flag = 0;
         break
     end
