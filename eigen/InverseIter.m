@@ -16,7 +16,8 @@ function [m, u, flag, iter] = InverseIter( A, shift, tol,maxIter, u0)
 %
 %   M = PowerIter(A, SHIFT, TOL, MAXITER, U0) specifies the initial guess 
 %   of the eigenvector of the dominant eigenvalue. If U0 is [] then 
-%   InverseIter uses the default, an all one vector.
+%   InverseIter uses the default, an all one vector. If U0 is specified
+%   while SHIFT is [], SHIFT will be set to U0'*A*U0/(U0'*U0). 
 %
 %   [M, U] = PowerIter(A, SHIFT ...) also returns the corresponding 
 %   eigenvector.
@@ -39,6 +40,10 @@ CheckSquareMatrix(A);
 n = size(A, 1);
 if(~exist('maxIter', 'var') || isempty(maxIter))
     maxIter = max(20, n);
+end
+
+if(exist('u0','var') && isempty(shift))
+    shift = (u0'*A*u0) / (u0'*u0);
 end
 
 if(~exist('u0','var') || isempty(u0))
