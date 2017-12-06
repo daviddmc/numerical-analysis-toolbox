@@ -19,7 +19,7 @@ function [L, D] = Cholesky(A, shape)
 %   R'*diag(D)*R = A. If A is not positive definite, an error message is 
 %   printed. 
 %
-%   See also LU, 
+%   See also LU, QR.
 
 %   Copyright 2017 Junshen Xu
 
