@@ -21,9 +21,9 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [ ] inverse matrix
     - [x] Gauss-Jordan method with complete pivoting
     - [x] triangle
-    - [ ] QR
+    - [x] QR
     - [ ] SVD
-    - [ ] LU
+    - [x] LU
 - [x] decomposition for symmetric positive definite matrix
     - [x] Cholesky decomposition
     - [x] LDL decomposition
