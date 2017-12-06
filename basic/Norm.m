@@ -6,8 +6,13 @@ function normX = Norm( X, type )
 % output
 % normX : norm of X
 
-if(~ismatrix(X) || isempty(X))
-    error('input X should be nonempty vector or matrix');
+if(~ismatrix(X))
+    error('input X should be vector or matrix');
+end
+
+if(isempty(X))
+    normX = 0;
+    return
 end
 
 if ~exist('type', 'var')
