@@ -14,12 +14,16 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] without pivoting
     - [x] with partial pivoting
     - [x] with complete pivoting
-- [ ] LU (Doolittle) decomposition 
+- [x] LU (Doolittle) decomposition 
     - [x] with partial pivoting
-    - [ ] with complete pivoting
+    - [x] with complete pivoting
 - [x] Thomas method
-- [x] inverse matrix
+- [ ] inverse matrix
     - [x] Gauss-Jordan method with complete pivoting
+    - [x] triangle
+    - [ ] QR
+    - [ ] SVD
+    - [ ] LU
 - [x] decomposition for symmetric positive definite matrix
     - [x] Cholesky decomposition
     - [x] LDL decomposition
@@ -27,6 +31,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Gram-Schimidt orthogonalization
     - [x] Givens transformation
     - [x] Householder transformation
+    - [x] column pivoting
 - [x] Jacobi iterative method
 - [x] Gauss-Seidel iterative method
 - [x] succesise over - relaxation method
@@ -124,7 +129,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ---
 
-## demo
+## Demo
 
 - Runge effect
 - Minimize error of polynomial interpolation using Chebyshev interpolation
@@ -132,7 +137,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ---
 
-## reference
+## Bibliography
 
 - 数值分析基础(第二版),关治,陆金甫. Fundamentals of Numerical Analysis (Second Edition), Zhi Guan, Jinfu Lu.
 - Numerical Analysis, Rainer Kress

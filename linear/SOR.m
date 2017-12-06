@@ -24,7 +24,7 @@ function [X, flag, iter, res] = SOR(A, B, omega, tol, maxIter, X0)
 %   [X, FLAG, ITER, RES] = SOR(A, B, OMEGA, ...) also returns a vector of
 %   the maximum of residual at each iteration. 
 %
-%   See also
+%   See also SSOR, JacIter, GSIter.
 
 %   Copyright 2017 Junshen Xu
 
