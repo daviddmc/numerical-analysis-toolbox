@@ -1,6 +1,15 @@
 function [T, Q] = TridiagReduction( A )
-%TRIDIAGREDUCTION Summary of this function goes here
-%   Detailed explanation goes here
+% TridiagReduction   Tridiagonal form.
+%   T = TridiagReduction(A) is the tridiagonal form of the symmetric
+%   (Hermitian) matrix A. This function produces the same results when the
+%   input matrix is symmetric (Hermitian), but faster.
+%
+%   [H, Q] = TridiagReduction(A) produces a tridiagonal matrix T and a 
+%   unitary matrix Q and  so that A = Q*T*Q' and Q'*Q = EYE(SIZE(Q)).
+% 
+%   See also BidiagReduction, HessenbergReduction.
+
+%   Copyright 2017 Junshen Xu
 
 n = size(A,1);
 beta = zeros(n-2,1);

@@ -1,8 +1,14 @@
-function [D] = SymQRIter( A )
+function [D, Q] = SymQRIter( A )
 %SYMQRITER Summary of this function goes here
 %   Detailed explanation goes here
 
-D = TridiagReduction( A ); 
+flagQ = nargout > 1;
+
+if flagQ
+    [D,Q] = TridiagReduction( A ); 
+else
+    D = TridiagReduction( A );
+end
 n = size(A, 1);
 tol = 1e-10;
 while(1)
@@ -23,6 +29,9 @@ while(1)
         m = min(i+2, j);
         D([i, i+1], i:m) = [c, s; -s', c] * D([i, i+1], i:m);
         D(i:m, [i, i+1]) = D(i:m, [i, i+1]) * [c, -s; s', c];
+        if(flagQ)
+            Q(:, [i, i+1]) = Q(:,[i,i+1])* [c, -s; s', c];
+        end
     end
     
     for k = i+1:j-1
@@ -37,6 +46,9 @@ while(1)
         D(k-1:m, [k, k+1]) = D(k-1:m, [k, k+1]) * [c, -s; s', c];
         D(k+1,k-1) = 0;
         D(k-1,k+1) = 0;
+        if(flagQ)
+            Q(:, [k, k+1]) = Q(:,[k,k+1])* [c, -s; s', c];
+        end
     end
 end
 

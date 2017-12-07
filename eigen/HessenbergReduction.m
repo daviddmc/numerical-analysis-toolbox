@@ -1,6 +1,16 @@
-function [H, Q] = HessenbergReduction( A )
-% QAQ^T = H;
-%   Detailed explanation goes here
+function [H, Q] = HessenbergReduction(A)
+% HessenbergReduction   Hessenberg form.
+%   H = HessenbergRection(A) is the Hessenberg form of the matrix A. The 
+%   Hessenberg form of a matrix is zero below the first subdiagonal and has
+%   the same eigenvalues as A. If the matrix is symmetric (Hermitian), the 
+%   form is tridiagonal, which is the same as TridiagReduction.  
+%
+%   [H, Q] = HessenbergReduction(A) produces a Hessenberg matrix H and a 
+%   unitary matrix Q and  so that A = Q*H*Q' and Q'*Q = EYE(SIZE(Q)).
+% 
+%   See also BidiagReduction, TridiagReduction.
+
+%   Copyright 2017 Junshen Xu
 
 n = size(A, 1);
 if(nargout > 1)
@@ -17,6 +27,7 @@ end
 if(nargout > 1)
     for ii = n-2:-1:1
         v = [1; A(ii+2:end, ii)];
+        %Q(ii+1:end, ii+1:end) = Q(ii+1:end, ii+1:end) - beta(ii)*(Q(ii+1:end, ii+1:end)*v)*v';
         Q(ii+1:end, ii+1:end) = Q(ii+1:end, ii+1:end) - beta(ii)*v*(v'*Q(ii+1:end, ii+1:end));
     end
 end
