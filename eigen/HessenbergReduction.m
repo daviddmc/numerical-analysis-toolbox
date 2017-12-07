@@ -1,4 +1,4 @@
-function [A, Q] = HessenbergReduction( A )
+function [H, Q] = HessenbergReduction( A )
 % QAQ^T = H;
 %   Detailed explanation goes here
 
@@ -6,24 +6,39 @@ n = size(A, 1);
 if(nargout > 1)
     Q = eye(n);
 end
+beta = zeros(n-2, 1);
 for ii = 1 : n-2
-    v = House(A(ii+1:end, ii));
-    A(ii+1:end, ii:end) = A(ii+1:end, ii:end) - 2*v*(v'*A(ii+1:end, ii:end));
-    A(:,ii+1:end) = A(:,ii+1:end) - 2*(A(:,ii+1:end)*v)*v';
-    if(nargout > 1)
-        Q(ii+1:end, 1:end) = Q(ii+1:end, 1:end) - 2*v*(v'*Q(ii+1:end, 1:end));
+    [v, beta(ii)] = HouseVec(A(ii+1:end, ii));
+    A(ii+1:end, ii:end) = A(ii+1:end, ii:end) - beta(ii)*v*(v'*A(ii+1:end, ii:end));
+    A(:,ii+1:end) = A(:,ii+1:end) - beta(ii)*(A(:,ii+1:end)*v)*v';
+    A(ii+2:end, ii) = v(2:end);
+end
+
+if(nargout > 1)
+    for ii = n-2:-1:1
+        v = [1; A(ii+2:end, ii)];
+        Q(ii+1:end, ii+1:end) = Q(ii+1:end, ii+1:end) - beta(ii)*v*(v'*Q(ii+1:end, ii+1:end));
     end
 end
 
+H = triu(A, -1);
+
+function [x, beta] = HouseVec(x)
+sigma = Norm(x);
+if(sigma == 0)
+    beta = 0;
+    return;
+else
+    beta = 1 / (sigma*(sigma + abs(x(1))));
+end
+    
+if x(1) == 0
+    mu = sigma;
+else
+    mu = -x(1)/abs(x(1)) * sigma;
 end
 
-function x = House(x)
-    if(x(1) == 0)
-        x(1) = -Norm(x);
-    else
-        x(1) = x(1) + x(1)/abs(x(1)) * Norm(x);
-    end
-    x = x / Norm(x);
-end
-
+x(1) = x(1) - mu;
+beta = beta * abs(x(1))^2;
+x = x / x(1);
 

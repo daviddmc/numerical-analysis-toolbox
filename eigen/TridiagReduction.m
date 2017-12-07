@@ -28,7 +28,6 @@ T(n+1:n+1:end) = conj(T(2:n+1:end));
 
 
 function [x, beta, mu] = HouseVec(x)
-
 sigma = Norm(x);
 if(sigma == 0)
     beta = 0;
@@ -46,23 +45,3 @@ end
 x(1) = x(1) - mu;
 beta = beta * abs(x(1))^2;
 x = x / x(1);
-
-%{
-sigma = x(2:end)'*x(2:end);
-v = [1; x(2:end)];
-if sigma == 0 && x(1)>=0
-    beta = 0;
-elseif sigma == 0 && x(1)<0
-    beta = -2;
-else
-    mu = sqrt(abs(x(1))^2+sigma);
-    if sign(x(1)) == -1
-        v(1)=x(1)-mu;
-    else
-        v(1)=-sigma/(x(1)+mu);
-    end
-    beta = 2*abs(v(1))^2/(sigma+abs(v(1))^2);
-    v = v/v(1);
-end
-%}
-
