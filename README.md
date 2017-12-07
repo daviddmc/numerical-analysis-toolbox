@@ -58,12 +58,21 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### Eigenvalue and Singular Value
 
-- [x] QR method
+- [x] reduction
+    - [x] Hessenberg
+    - [x] bidiagonal
+    - [x] tridiagonal
+- [x] power iteration
+- [x] inverse iteration (with shift)
 - [x] Rayleigh quotient iteration
+- [x] deflation method
+- [ ] QR iteration
+    - [ ] single shift
+    - [x] double shift
+    - [x] symmetric
 - [x] Jacobi method
-- [x] power method
-- [x] inverse power method
-- [ ] singular value decomposition
+- [x] balances
+- [x] singular value decomposition
 
 ### Interpolation
 
