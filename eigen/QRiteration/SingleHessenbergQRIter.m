@@ -1,9 +1,28 @@
 function [D, Q] = SingleHessenbergQRIter(D, Q, tol)
-%QRITER Summary of this function goes here
-%   Detailed explanation goes here
+% SingleHessenbergQRIter   QR iteration for upper Hessenberg marix.
+%   T = SingleHessenbergQRIter(H) is the upper triangular form of the upper
+%   Hessenberg matrix H. Single shift is used in this algorithm.
+%
+%   [T, Q] = SingleHessenbergQRIter(H) produces a upper triangle T and a 
+%   unitary matrix Q so that T = Q*H*Q'.
+% 
+%   [T, Q] = SingleHessenbergQRIter(H, P) assumes that P is a unitary 
+%   matrix of the same size as H and produces a upper triangle D and a 
+%   unitary matrix Q so that T = Q*P'*H*P*Q'.
+%
+%   [T, Q] = SingleHessenbergQRIter(H, P, TOL) specifies the tolerance of 
+%   QR iteration. If TOL is [] the default value, 1e-10, will be used.
+%
+%   See also DoubleHessenbergQRIter, BidiagQRITer, TridiagQRIter, Eigen.
+
+%   Copyright 2017 Junshen Xu
 
 flagQ = nargout > 1;
 n = size(D, 1);
+if flagQ && ~exist('Q', 'var')
+    Q = eye(n);
+end
+
 if ~exist('tol','var')
     tol = 1e-10;
 end

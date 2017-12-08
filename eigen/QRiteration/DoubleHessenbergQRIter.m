@@ -1,8 +1,28 @@
 function [D, Q] = DoubleHessenbergQRIter(D, Q, tol)
-%QRITER Summary of this function goes here
-%   Detailed explanation goes here
+% DoubleHessenbergQRIter   QR iteration for upper real Hessenberg marix.
+%   T = DoubleHessenbergQRIter(H) is the upper quasi-triangular form of 
+%   the real upper Hessenberg matrix H. Francis double shift is used in 
+%   this algorithm.
+%
+%   [T, Q] = DoubleHessenbergQRIter(H) produces a upper quasi-triangle T 
+%   and a unitary matrix Q so that T = Q*H*Q'.
+% 
+%   [T, Q] = DoubleHessenbergQRIter(H, P) assumes that P is a unitary 
+%   matrix of the same size as H and produces a upper quasi-triangle D and 
+%   a unitary matrix Q so that T = Q*P'*H*P*Q'.
+%
+%   [T, Q] = DoubleHessenbergQRIter(H, P, TOL) specifies the tolerance of 
+%   QR iteration. If TOL is [] the default value, 1e-10, will be used.
+%
+%   See also DoubleHessenbergQRIter, BidiagQRITer, TridiagQRIter, Eigen.
+
+%   Copyright 2017 Junshen Xu
+
 flagQ = nargout > 1;
 n = size(D, 1);
+if flagQ && ~exist('Q', 'var')
+    Q = eye(n);
+end
 if ~exist('tol','var')
     tol = 1e-10;
 end

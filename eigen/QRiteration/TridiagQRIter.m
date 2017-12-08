@@ -1,7 +1,8 @@
 function [D, Q] = TridiagQRIter(D, Q, tol)
 % TridiagQRIter   QR iteration for symmetric tridiagonal marix.
 %   D = TridiagQRIter(T) is the diagonal form of the symmetric tridiagonal
-%   matrix T, whose elements are the eigenvalue of T.
+%   matrix T, whose elements are the eigenvalue of T. Wilkinson shift is
+%   used in this algorithm.
 %
 %   [D, Q] = TridiagQRIter(T) produces a diagonal matrix D and a 
 %   unitary matrix Q so that D = Q*T*Q', columns of Q are the 
@@ -15,7 +16,8 @@ function [D, Q] = TridiagQRIter(D, Q, tol)
 %   [D, Q] = TridiagQRIter(T, P, TOL) specifies the tolerance of QR
 %   iteration. If TOL is [] the default value, 1e-10, will be used.
 %
-%   See also
+%   See also SingleHessenbergQRIter, DoubleHessenbergQRIter, BidiagQRITer,
+%   SymEigen.
 
 %   Copyright 2017 Junshen Xu
 
