@@ -10,33 +10,36 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] matrix functions
     - [x] norm (1,2,infinity,Fibonacci)
     - [x] condition number
-- [x] Gaussian elimination
-    - [x] without pivoting
-    - [x] with partial pivoting
-    - [x] with complete pivoting
-- [x] LU (Doolittle) decomposition 
-    - [x] with partial pivoting
-    - [x] with complete pivoting
-- [x] Thomas method
+- [x] direct methods for solving linear system
+    - [x] Gaussian elimination
+        - [x] without pivoting
+        - [x] with partial pivoting
+        - [x] with complete pivoting
+    - [x] Thomas method
+- [x] matrix decomposition
+    - [x] LU (Doolittle) decomposition 
+        - [x] with partial pivoting
+        - [x] with complete pivoting
+    - [x] decomposition for symmetric positive definite matrix
+        - [x] Cholesky decomposition
+        - [x] LDL decomposition
+    - [x] QR decomposition
+        - [x] Gram-Schimidt orthogonalization
+        - [x] Givens transformation
+        - [x] Householder transformation
+        - [x] column pivoting
 - [ ] inverse matrix
     - [x] Gauss-Jordan method with complete pivoting
     - [x] triangle
     - [x] QR
     - [ ] SVD
     - [x] LU
-- [x] decomposition for symmetric positive definite matrix
-    - [x] Cholesky decomposition
-    - [x] LDL decomposition
-- [x] QR decomposition
-    - [x] Gram-Schimidt orthogonalization
-    - [x] Givens transformation
-    - [x] Householder transformation
-    - [x] column pivoting
-- [x] Jacobi iterative method
-- [x] Gauss-Seidel iterative method
-- [x] succesise over - relaxation method
-    - [x] SOR
-    - [x] symmetric SOR
+- [ ] iterative method for solving linear system
+    - [x] Jacobi iterative method
+    - [x] Gauss-Seidel iterative method
+    - [x] succesise over - relaxation method
+        - [x] SOR
+        - [x] symmetric SOR
 - [ ] conjugate gradient method
     - [ ] steepest descent
     - [x] conjugate gradient

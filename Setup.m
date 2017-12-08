@@ -1,12 +1,12 @@
-addpath basic
-addpath demo
-addpath eigen
-addpath integral
-addpath interpolation
-addpath linear
-addpath nonlinear
-addpath approximation
-addpath ode
-addpath stochastic
-addpath optimization
-addpath pde
+addpath(genpath('basic'));
+addpath(genpath('demo'));
+addpath(genpath('eigen'));
+addpath(genpath('integral'));
+addpath(genpath('interpolation'));
+addpath(genpath('linear'));
+addpath(genpath('nonlinear'));
+addpath(genpath('approximation'));
+addpath(genpath('ode'));
+addpath(genpath('stochastic'));
+addpath(genpath('optimization'));
+addpath(genpath('pde'));

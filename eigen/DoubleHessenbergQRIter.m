@@ -1,15 +1,11 @@
-function [D, Q] = QRIter( A )
+function [D, Q] = DoubleHessenbergQRIter(D, Q, tol)
 %QRITER Summary of this function goes here
 %   Detailed explanation goes here
 flagQ = nargout > 1;
-
-if flagQ
-    [D,Q] = HessenbergReduction(A); 
-else
-    D = HessenbergReduction(A); 
+n = size(D, 1);
+if ~exist('tol','var')
+    tol = 1e-10;
 end
-n = size(A, 1);
-tol = 1e-10;
 while(1)
     for i = 1:n-1
         if abs(D(i+1,i)) < tol*(abs(D(i,i) + abs(D(i+1,i+1))))
@@ -48,8 +44,8 @@ while(1)
         D(j-1:j, j-2:j) = D(j-1:j, j-2:j) - beta*v*(v'*D(j-1:j, j-2:j));
         D(i:j,j-1:j) = D(i:j,j-1:j) - beta*(D(i:j,j-1:j)*v)*v';
     end
-    D(3:n+1:end-n) = 0;
-    D(4:n+1:end-2*n) = 0;
+    %D(3:n+1:end-n) = 0;
+    %D(4:n+1:end-2*n) = 0;
 end
 
 end

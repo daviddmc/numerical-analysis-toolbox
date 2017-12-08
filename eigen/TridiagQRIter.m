@@ -1,4 +1,4 @@
-function [D, Q] = SymQRIter( A )
+function [D, Q] = TridiagQRIter( A )
 %SYMQRITER Summary of this function goes here
 %   Detailed explanation goes here
 
