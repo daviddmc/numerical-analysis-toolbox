@@ -1,16 +1,34 @@
-function [D, Q] = TridiagQRIter( A )
-%SYMQRITER Summary of this function goes here
-%   Detailed explanation goes here
+function [D, Q] = TridiagQRIter(D, Q, tol)
+% TridiagQRIter   QR iteration for symmetric tridiagonal marix.
+%   D = TridiagQRIter(T) is the diagonal form of the symmetric tridiagonal
+%   matrix T, whose elements are the eigenvalue of T.
+%
+%   [D, Q] = TridiagQRIter(T) produces a diagonal matrix D and a 
+%   unitary matrix Q so that D = Q*T*Q', columns of Q are the 
+%   corresponding eigenvectors for eigenvalues of T. 
+% 
+%   [D, Q] = TridiagQRIter(T, P) assumes that P is a unitary matrix of the
+%   same size as T and produces a diagonal matrix D and a unitary matrix Q 
+%   so that D = Q*P'*T*P*Q', columns of Q is the corresponding eigenvectors
+%   for eigenvalues of P'*T*P.
+%
+%   [D, Q] = TridiagQRIter(T, P, TOL) specifies the tolerance of QR
+%   iteration. If TOL is [] the default value, 1e-10, will be used.
+%
+%   See also
+
+%   Copyright 2017 Junshen Xu
 
 flagQ = nargout > 1;
-
-if flagQ
-    [D,Q] = TridiagReduction( A ); 
-else
-    D = TridiagReduction( A );
+n = size(D, 1);
+if flagQ && ~exist('Q', 'var')
+    Q = eye(n);
 end
-n = size(A, 1);
-tol = 1e-10;
+
+if ~exist('tol', 'var')
+    tol = 1e-10;
+end
+
 while(1)
     D(1:n+1:end) = real(D(1:n+1:end));
     for i = 1:n-1

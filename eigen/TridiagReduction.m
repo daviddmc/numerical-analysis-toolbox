@@ -1,5 +1,5 @@
 function [T, Q] = TridiagReduction( A )
-% TridiagReduction   Tridiagonal form.
+% TridiagReduction   Symmetric tridiagonal form.
 %   T = TridiagReduction(A) is the tridiagonal form of the symmetric
 %   (Hermitian) matrix A. This function produces the same results when the
 %   input matrix is symmetric (Hermitian), but faster.
