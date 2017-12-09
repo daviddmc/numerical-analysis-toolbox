@@ -3,8 +3,8 @@ function [D, Q] = SymEigen( A )
 %   E = SymEigen(A) produces a column vector E containing the eigenvalues 
 %   of a symmetric (Hermitian) matrix A.
 % 
-%   [V, D] = SymEigen(A) produces a diagonal matrix D of eigenvalues and a 
-%   unitary matrix Q so that D = Q*A*Q', columns of Q are the corresponding
+%   [D, Q] = SymEigen(A) produces a diagonal matrix D of eigenvalues and a 
+%   unitary matrix Q so that D = Q'*A*Q, columns of Q are the corresponding
 %   eigenvectors.
 
 flagQ = nargout > 1;

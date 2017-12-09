@@ -1,66 +1,53 @@
-function r = PolyRoot( a )
-%POLYREALROOT Summary of this function goes here
+function r = PolyRoot( p )
+%POLYROOT Summary of this function goes here
 %   Detailed explanation goes here
 
-n = length(a) - 1;
-%a = a(end:-1:1);
-p = a;
-r = [];
-z = 0;
+p = p(:).';
+n = size(p,2);
+r = [];  
 
-epsilon1 = 1e-6;
-epsilon2 = 1e-10;
+inz = find(p);
+if isempty(inz)
+    % All elements are zero
+    return
+end
 
-k = n;
-while(k > 0)
-    [z, flag] = Muller(@(x)(PolyValue(p , x)), ...
-        z, 100, epsilon1);
-    if(flag)
-        if(abs(imag(z)) < epsilon1)
-            r = [r real(z)];
-            p = filter(1,[1 -z],p);
-            p(end) = [];
-            k = k - 1;
-        else
-            r = [r z z'];
-            p = filter(1,[1 -z],p);
-            p(end) = [];
-            p = filter(1,[1 -z'],p);
-            p(end) = [];
-            p = real(p);
-            k = k - 2;
-        end
+% Strip leading zeros and throw away.  
+% Strip trailing zeros, but remember them as roots at zero.
+nnz = length(inz);
+p = p(inz(1):inz(nnz));
+r = zeros(n-inz(nnz),1);  
+
+% Prevent relatively small leading coefficients from introducing Inf
+% by removing them.
+d = p(2:end)./p(1);
+while any(isinf(d))
+    p = p(2:end);
+    d = p(2:end)./p(1);
+end
+
+% Polynomial roots via a companion matrix
+n = length(p);
+if n > 1
+    A = diag(ones(1,n-2),-1);
+    A(1,:) = -d;
+    if isreal(A)
+        A = DoubleHessenbergQRIter(A);
+        n = size(A, 1);
+        for i = 1:n-1
+            if A(i+1, i) ~= 0
+                a = (A(i, i) + A(i+1, i+1)) / 2;
+                d = A(i, i) - A(i+1, i+1);
+                bc = A(i, i+1) * A(i+1, i);
+                delta = sqrt(4*bc + d^2) / 2;
+                A(i,i) = a + delta;
+                A(i+1, i+1) = a - delta;
+            end
+        end   
     else
-        break;
+        A = SingleHessenbergQRIter(A);
     end
-    
-    if(isreal(z))
-        
-    else
-        
-    end
-        
+    r = [r; diag(A)];
 end
-
-p = a;
-f = @(x)(PolyValue(p , x));
-k = length(r);
-while(k > 0)
-    if(isreal(r(k)))
-        r(k) = Muller(f, r(k), 5, epsilon2);
-        k = k - 1;
-    else
-        r(k) = Muller(f, r(k), 5, epsilon2);
-        r(k - 1) = r(k)';
-        k = k - 2;
-    end
 end
-
-end
-
-function y = PolyValue(p, x)
-    y = filter(1,[1 -x],p);
-    y = y(length(p));
-end
-
 
