@@ -1,4 +1,4 @@
-function X = ChebyshevAcceleration(R, C, rho,X0, maxIter, tolerance)
+function X = ChebyshevAcceleration(R, C, rho, X0, maxIter, tolerance)
 % ChebyshevAcceleration
 
 CheckSquareMatrix(R);

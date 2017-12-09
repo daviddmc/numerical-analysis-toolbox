@@ -17,11 +17,11 @@ function [x, flag, iter, xs] = Brent(fun, interval, tol, maxIter)
 %      iterations.
 %    1 Brent iterated MAXITER times but did not converge.
 %
-%   [X, FLAG, ITER] = Steffensen(PHI, X0, ...) also returns the iteration
+%   [X, FLAG, ITER] = Brent(FUN, ITERVAL, ...) also returns the iteration 
 %   number at which X was computed: 0 <= ITER <= MAXITER.
 %
-%   [X, FLAG, ITER, XS] = Steffensen also returns a vector of iteration
-%   result at each step, length(XS) = ITER, XS(end) = X;
+%   [X, FLAG, ITER, XS] = Brent(FUN, ITERVAL, ...) also returns a vector of
+%   iteration result at each step, length(XS) = ITER, XS(end) = X;
 %
 %   See also
 

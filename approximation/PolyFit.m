@@ -14,7 +14,7 @@ for j = n:-1:1
    V(:,j) = x.*V(:,j+1);
 end
 
-% solve ls problem
+% Solve ls problem.
 p = LS( V, y, 'QR');
 
 end
