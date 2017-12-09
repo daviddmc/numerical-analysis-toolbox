@@ -158,3 +158,4 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - Numerical Analysis (2nd edition), Timothy Sauer
 - Numerical Analysis (9th edition), Richard L. Burden, J. Douglas Faires
 - Matrix Computation (4th edition), Gene H. Golub, Charles F. Van Loan
+- Numerical Optimization (2nd edition), Jorge Nocedal, Stephen J. Wright

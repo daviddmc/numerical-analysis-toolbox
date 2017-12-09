@@ -10,3 +10,4 @@ addpath(genpath('ode'));
 addpath(genpath('stochastic'));
 addpath(genpath('optimization'));
 addpath(genpath('pde'));
+addpath(genpath('differentiation'))
