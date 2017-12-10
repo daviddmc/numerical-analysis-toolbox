@@ -20,7 +20,7 @@ function [y, yp] = Horner(p, x)
 
 
 nc = length(p);
-y = p(1);
+y = p(1) * ones(size(x));
 
 if nargout == 2
     yp = p(1);
