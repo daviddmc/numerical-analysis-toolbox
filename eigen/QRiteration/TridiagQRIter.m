@@ -94,7 +94,11 @@ end
 function [x, z] = WilkinsonShift(D, i, j)
     d = (D(j-1,j-1) - D(j,j))/2;
     c = D(j,j-1)'*D(j,j-1);
-    mu = D(j,j) - c/(d+sign(d)*sqrt(d^2+c));
+    if d == 0
+        mu = D(j,j) - sqrt(c);
+    else
+        mu = D(j,j) - c/(d+sign(d)*sqrt(d^2+c));
+    end
     x = D(i,i) - mu;
     z = D(i+1,i);
 end

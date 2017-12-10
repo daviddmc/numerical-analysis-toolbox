@@ -26,6 +26,7 @@ end
 if ~exist('tol','var')
     tol = 1e-10;
 end
+FancisCount = 0;
 while(1)
     for i = 1:n-1
         if abs(D(i+1,i)) < tol*(abs(D(i,i) + abs(D(i+1,i+1))))
@@ -36,7 +37,15 @@ while(1)
     if j == 1
         break;
     end
-    [x,y,z] = FrancisStep(D, i, j);
+    FancisCount = FancisCount + 1;
+    if FancisCount > 5
+        x = D(i, i);
+        y = D(i+1, i);
+        z = D(i+2, i);
+        FancisCount = 0;
+    else
+        [x,y,z] = FrancisStep(D, i, j);
+    end
     for k = i-1:j-3
         [v, beta] = HouseVec([x;y;z]);
         q = max(i, k);

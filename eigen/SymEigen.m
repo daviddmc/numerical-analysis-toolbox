@@ -15,7 +15,7 @@ if flagQ
 else
     D = TridiagReduction(A);
     D = TridiagQRIter(D);
-    D = diag(D);s
+    D = diag(D);
 end
 
 end
