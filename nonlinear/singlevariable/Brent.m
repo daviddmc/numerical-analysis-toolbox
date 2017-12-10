@@ -8,7 +8,7 @@ function [x, flag, iter, xs] = Brent(fun, interval, tol, maxIter)
 %   If TOL is [] then Brent uses the default, 1e-6. 
 %   
 %   X = Brent(FUN, ITERVAL, TOL, MAXITER) specifies the maximum number 
-%   of iterations. If MAXITER is [] then Steffensen uses the default,
+%   of iterations. If MAXITER is [] then Brent uses the default,
 %   max(10, ceil(log2(abs(INTERVAL(1)-INTERVAL(2)) / TOL)))
 %
 %   [X, FLAG] = Brent(FUN, ITERVAL, ...) also returns a convergence 

@@ -1,4 +1,4 @@
-function r = PolyRoot( a )
+function r = PolyRootDeflate( a )
 %POLYREALROOT Summary of this function goes here
 %   Detailed explanation goes here
 
