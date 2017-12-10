@@ -1,8 +1,8 @@
 function r = PolyRealRootDeflation( a )
 % PolyRealRootDeflation    Find real roots of real-coefficient polynomial.
-%   roots(A) computes the real roots of the polynomial whose coefficients
-%   are the elements of the real vector A. If A has N+1 components, the 
-%   polynomial is A(1)*X^N + ... + A(N)*X + A(N+1).  
+%   roots(A) computes the real roots of the polynomial using Newton method
+%   and deflation. The coefficients vector A should by real. If A has N+1 
+%   components, the polynomial is A(1)*X^N + ... + A(N)*X + A(N+1).  
 
 a = a(:).';
 n = size(a,2);

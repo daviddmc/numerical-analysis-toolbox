@@ -5,46 +5,54 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ## algorithms list
 
-### Linear System
+### 1.Linear System
 
-- [x] matrix functions
-    - [x] norm (1,2,infinity,Fibonacci)
-    - [x] condition number
-- [x] direct methods for solving linear system
-    - [x] Gaussian elimination
-        - [x] without pivoting
-        - [x] with partial pivoting
-        - [x] with complete pivoting
-    - [x] Thomas method
-- [x] matrix decomposition
-    - [x] LU (Doolittle) decomposition 
-        - [x] with partial pivoting
-        - [x] with complete pivoting
-    - [x] decomposition for symmetric positive definite matrix
-        - [x] Cholesky decomposition
-        - [x] LDL decomposition
-    - [x] QR decomposition
-        - [x] Gram-Schimidt orthogonalization
-        - [x] Givens transformation
-        - [x] Householder transformation
-        - [x] column pivoting
-- [ ] inverse matrix
+#### matrix functions
+
+- [x] norm (1,2,infinity,Fibonacci)
+- [x] condition number
+- [ ] rank
+
+#### direct methods for solving linear system
+ 
+- [x] Gaussian elimination
+    - [x] without pivoting
+    - [x] with partial pivoting
+    - [x] with complete pivoting
+- [x] Thomas method
+
+#### matrix decomposition
+
+- [x] LU (Doolittle) decomposition 
+    - [x] with partial pivoting
+    - [x] with complete pivoting
+- [x] decomposition for symmetric positive definite matrix
+    - [x] Cholesky decomposition
+    - [x] LDL decomposition
+- [x] QR decomposition
+    - [x] Gram-Schimidt orthogonalization
+    - [x] Givens transformation
+    - [x] Householder transformation
+    - [x] column pivoting
+
+#### inverse matrix
     - [x] Gauss-Jordan method with complete pivoting
     - [x] triangle
     - [x] QR
     - [ ] SVD
     - [x] LU
-- [ ] iterative method for solving linear system
-    - [x] Jacobi iterative method
-    - [x] Gauss-Seidel iterative method
-    - [x] succesise over - relaxation method
-        - [x] SOR
-        - [x] symmetric SOR
+
+#### iterative method for solving linear system
+
+- [x] Jacobi iterative method
+- [x] Gauss-Seidel iterative method
+- [x] succesise over - relaxation method
+    - [x] SOR
+    - [x] symmetric SOR
 - [ ] conjugate gradient method
     - [ ] steepest descent
     - [x] conjugate gradient
     - [ ] preconditioned conjugate gradient 
-- [x] least square problem
 
 ### Nonlinear Equation and System
 
@@ -104,6 +112,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] fast Fourier transform
     - [x] base 2
     - [x] base 3
+- [x] least square problem
 
 ### Numerical Integration and Differentiation
 
