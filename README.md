@@ -54,33 +54,48 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] conjugate gradient
     - [ ] preconditioned conjugate gradient 
 
-### Nonlinear Equation and System
+### 2.Nonlinear Equation and System
+
+#### single variable
 
 - [x] bisection method
 - [x] Steffensen acceleration for fixed-point iteration
 - [x] Newton method
-    - [x] Newton iteration
-    - [x] Newton iteration for multiplicity > 1
 - [x] secant method
 - [x] Brent method
-- [ ] fixed-point iteration for nonlinear system
-- [ ] Newton method for nonlinear system
-- [ ] quasi-Newton method
 
-### Eigenvalue and Singular Value
+#### multivariable
 
-- [x] reduction
-    - [x] Hessenberg
-    - [x] bidiagonal
-    - [x] tridiagonal
+- [ ] Newton method
+- [x] Broyden method
+
+#### polynomail
+
+
+
+### 3.Eigenvalue and Singular Value
+
+#### reduction
+
+- [x] Hessenberg
+- [x] bidiagonal
+- [x] tridiagonal
+
+#### iterative method
+
 - [x] power iteration
 - [x] inverse iteration (with shift)
 - [x] Rayleigh quotient iteration
 - [x] deflation method
-- [ ] QR iteration
-    - [ ] single shift
-    - [x] double shift
-    - [x] symmetric
+
+#### QR iteration
+
+- [x] single shift
+- [x] double shift
+- [x] symmetric
+
+#### others
+
 - [x] Jacobi method
 - [x] balances
 - [x] singular value decomposition
