@@ -1,4 +1,4 @@
-function [x, flag, iter, res] = CG( A, b ,tol, MaxIter, x0)
+function [x, flag, iter, res] = BiCGstab( A, b ,tol, MaxIter, x0)
 % conjugate gradient method
 % solving A * x = b
 % input
@@ -43,33 +43,35 @@ if flagRecord
     res = zeros(maxIter, 1);
 end
 
-x = x0;
-r = b - A * x;
-rhoc = r'*r;
 delta = max(tol, tol * Norm(b));
 delta2 = delta * delta;
 flag = 1;
 
+x = x0;
+r = b - A * x;
+r0 = r;
+p = r0;
+rhoc = r0'*r;
 for iter = 1 : MaxIter
+    rr = r'*r;
     if flagRecord
-        res(iter) = sqrt(rhoc);
+        res(iter) = sqrt(rr);
     end
-    if rhoc < delta2
+    if rr < delta2
         flag = 0;
         break
     end
-    if iter == 1
-        p = r;
-    else
-        tau = rhoc / rho;
-        p = r + tau * p;
-    end
     w = A*p;
-    mu = rhoc/(p'*w);
-    x = x + mu*p;
-    r = r - mu*w;
-    rho = rhoc;
-    rhoc = r'*r;
+    mu = rhoc / (r0'*w);
+    s = r - mu*w;
+    t = A*s;
+    omega = s'*t / (t'*t);
+    x = x + mu*p + omega*s;
+    r = s - omega*t;
+    rho = r0'*r;
+    tau = rho*mu / (rhoc*omega);
+    p = r + tau*(p - omega*w);
+    rhoc = rho;
 end
 
 if flagRecord

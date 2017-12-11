@@ -1,4 +1,4 @@
-function [x, flag, iter, res] = CG( A, b ,tol, MaxIter, x0)
+function [x, flag, iter, res] = CGS( A, b ,tol, MaxIter, x0)
 % conjugate gradient method
 % solving A * x = b
 % input
@@ -43,33 +43,36 @@ if flagRecord
     res = zeros(maxIter, 1);
 end
 
-x = x0;
-r = b - A * x;
-rhoc = r'*r;
 delta = max(tol, tol * Norm(b));
 delta2 = delta * delta;
 flag = 1;
 
+x = x0;
+r = b - A * x;
+r0 = r;
+p = r0;
+u = r;
+rhoc = r0'*r;
 for iter = 1 : MaxIter
+    rr = r'*r;
     if flagRecord
-        res(iter) = sqrt(rhoc);
+        res(iter) = sqrt(rr);
     end
-    if rhoc < delta2
+    if rr < delta2
         flag = 0;
         break
     end
-    if iter == 1
-        p = r;
-    else
-        tau = rhoc / rho;
-        p = r + tau * p;
-    end
     w = A*p;
-    mu = rhoc/(p'*w);
-    x = x + mu*p;
-    r = r - mu*w;
-    rho = rhoc;
-    rhoc = r'*r;
+    mu = rhoc / (r0'*w);
+    q = u - mu*w;
+    t = u + q;
+    x = x + mu*t;
+    r = r - mu*(A*t);
+    rho = r0'*r;
+    tau = rho / rhoc;
+    u = r + tau * q;
+    p = u + tau*(q + tau*p);
+    rhoc = rho;
 end
 
 if flagRecord
