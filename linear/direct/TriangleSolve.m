@@ -27,7 +27,7 @@ end
 
 if(strncmpi(shape,'lower', 1))
     for ii = 1 : n
-        if(abs(A(ii, ii)) < tol)
+        if(abs(A(ii, ii)) <= tol)
             X(ii, :) = 1;
         else
             X(ii, :) = (B(ii, :) - A(ii, 1:ii-1) * X(1:ii-1, :)) / A(ii,ii);
@@ -35,7 +35,7 @@ if(strncmpi(shape,'lower', 1))
     end
 elseif(strncmpi(shape, 'upper', 1))
     for ii = n : -1 : 1
-        if(abs(A(ii, ii)) < tol)
+        if(abs(A(ii, ii)) <= tol)
             X(ii, :) = 1;
         else
             X(ii, :) = (B(ii, :) - A(ii, ii+1:end) * X(ii+1:end, :)) / A(ii,ii);

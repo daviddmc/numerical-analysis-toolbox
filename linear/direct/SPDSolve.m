@@ -13,7 +13,7 @@ CheckMultiplicationSize(A,[],B);
 n = size(A, 1);
 
 diagonalIdx = 1:n+1:n^2;
-tol = Norm(A, inf) * 1e-14;
+tol = max(Norm(A, inf) * 1e-14, 1e-14);
 k = 1;
 p = 1:n;
 while k <= n

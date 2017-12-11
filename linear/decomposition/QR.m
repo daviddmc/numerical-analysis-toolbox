@@ -178,7 +178,7 @@ if flagPivot
     if flagVec
         E = p;
     else
-        E = eye(n);
+        E = eye(size(A, 2));
         E = E(:, p);
     end
 end

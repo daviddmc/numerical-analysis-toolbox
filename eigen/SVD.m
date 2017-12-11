@@ -45,14 +45,19 @@ end
 m = size(A, 1);
 
 if flagV
-    V = V * diag(sign(diag(A)'));
+    signA = sign(diag(A)');
+    signA(signA == 0) = 1;
+    V = V .* signA;
 end
 
 if ~flagU
     S = abs(diag(A));
 else
     S = zeros(size(A));
-    S(1:m+1:end) = abs(diag(A));
+    [s, idx] = sort(abs(diag(A)), 'descend');
+    S(1:m+1:end) = s;
+    U = U(:, idx);
+    V = V(:, idx);
 end
 
 if flagT

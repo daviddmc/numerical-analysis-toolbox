@@ -35,12 +35,14 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Householder transformation
     - [x] column pivoting
 
-#### inverse matrix
-    - [x] Gauss-Jordan method with complete pivoting
-    - [x] triangle
-    - [x] QR
-    - [ ] SVD
-    - [x] LU
+#### inverse and pseudo-inverse of matrix
+
+- [x] Newton iteration
+- [x] Gauss-Jordan method with complete pivoting
+- [x] triangle inverse
+- [x] QR decomposition
+- [ ] SVD
+- [x] LU decomposition
 
 #### iterative method for solving linear system
 
@@ -63,15 +65,18 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] Newton method
 - [x] secant method
 - [x] Brent method
+- [x] Muller method
 
 #### multivariable
 
 - [ ] Newton method
 - [x] Broyden method
 
-#### polynomail
+#### polynomial
 
-
+- [x] Horner method
+- [x] finding roots using deflation
+- [x] finding roots using QR iteration
 
 ### 3.Eigenvalue and Singular Value
 
@@ -118,16 +123,25 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### Function Approximation
 
-- [x] orthogonal polynomials
-    - [x] Legendre
-    - [x] Laguerre
-    - [x] Hermite
-    - [x] Chebyshev
+#### orthogonal polynomials
+
+- [x] Legendre
+- [x] Laguerre
+- [x] Hermite
+- [x] Chebyshev
+
+#### data fitting
+
+- [x] linear least square
+    - [x] normal equation
+    - [x] QR
+    - [x] SVD
 - [x] polynomial fit
-- [x] fast Fourier transform
-    - [x] base 2
-    - [x] base 3
-- [x] least square problem
+
+#### fast Fourier transform
+
+- [x] base 2
+- [x] base 3
 
 ### Numerical Integration and Differentiation
 
