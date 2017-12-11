@@ -51,10 +51,18 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] succesise over - relaxation method
     - [x] SOR
     - [x] symmetric SOR
-- [ ] conjugate gradient method
-    - [ ] steepest descent
-    - [x] conjugate gradient
-    - [ ] preconditioned conjugate gradient 
+- [ ] Krylov methods
+    - [ ] CG
+    - [ ] CGNE
+    - [ ] CGNR
+    - [ ] GMRES
+    - [ ] MINRES
+    - [ ] SYMMLQ
+    - [ ] QMR
+    - [ ] BiCG
+    - [ ] CGS
+    - [ ] BiCGstab
+    - [ ] LSQR
 
 ### 2.Nonlinear Equation and System
 
@@ -71,6 +79,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 - [ ] Newton method
 - [x] Broyden method
+- [ ] solving nonlinear LS problem
 
 #### polynomial
 
@@ -139,8 +148,8 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] rank deficient least square
     - [x] QR
     - [x] SVD
-- [ ] weighted least square
-- [ ] Tikhonov regularization
+- [x] weighted least square
+- [x] Tikhonov regularization
 - [x] polynomial fit
 
 #### fast Fourier transform
@@ -180,6 +189,12 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### Optimization
 
+#### nonlinear least square
+
+- [ ] Gauss-Newton
+- [x] Levenberg-Marquardt
+
+#### derivative-free method
 - [x] Nelder - Mead
 
 ---
