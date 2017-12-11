@@ -130,12 +130,17 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] Hermite
 - [x] Chebyshev
 
-#### data fitting
+#### least square problem
 
-- [x] linear least square
+- [x] full rank least square
     - [x] normal equation
     - [x] QR
     - [x] SVD
+- [x] rank deficient least square
+    - [x] QR
+    - [x] SVD
+- [ ] weighted least square
+- [ ] Tikhonov regularization
 - [x] polynomial fit
 
 #### fast Fourier transform
