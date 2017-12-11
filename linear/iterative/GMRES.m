@@ -1,4 +1,4 @@
-function [x, flag, iter, res] = CG( A, b ,tol, MaxIter, x0)
+function [x, flag, iter, res] = GMRES( A, b ,tol, MaxIter, x0)
 % conjugate gradient method
 % solving A * x = b
 % input
@@ -17,7 +17,6 @@ end
 if(~iscolumn(b))
     b = b(:);
 end
-
 
 if(~exist('MaxIter', 'var') || isempty(MaxIter))
     MaxIter = max(size(A,1), 20);
@@ -44,38 +43,43 @@ if flagRecord
 end
 
 x = x0;
-r = b - A * x;
-
 delta = max(tol, tol * Norm(b));
-delta2 = delta * delta;
 flag = 1;
 
 for iter = 1 : MaxIter
     if 0
-        z = M\r;
+        r = M \ (b - A*x);
     else
-        z = r;
+        r = b - A*x;
     end
-    rhoNew = r'*z;
-    rr = r'*r;
+    rNorm = sqrt(r'*r);
     if flagRecord
-        res(iter) = sqrt(rr);
+        res(iter) = rNorm;
     end
-    if rr < delta2
+    if rNorm < delta
         flag = 0;
         break
     end
-    if iter == 1
-        p = z;
-    else
-        tau = rhoNew / rho;
-        p = z + tau * p;
-    end
-    w = A*p;
-    mu = rhoc/(p'*w);
-    x = x + mu*p;
-    r = r - mu*w;
-    rho = rhoNew;
+    v = r / rNorm;
+    s = rNorm*e1;
+    for i = 1:m
+        if 0
+            w = M\(A*vi);
+        else
+            w = A*vi;
+        end
+        for k = 1:i
+            h(k, i) = w'*vk;
+            w = w - h(k,i)*vk;
+        end
+        h(i+1, i) = Norm(w);
+        vi+1 = w / h(i+1, i);
+        apply J
+        get J
+        s = J*s;
+    
+    
+    
 end
 
 if flagRecord
