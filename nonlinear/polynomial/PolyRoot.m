@@ -1,32 +1,29 @@
 function r = PolyRoot( p )
-%POLYROOT Summary of this function goes here
-%   Detailed explanation goes here
+% PolyRoot  Find polynomial roots using companion matrix.
+%   PolyRoot(P) computes the roots of the polynomial whose coefficients
+%   are the elements of the vector P. If P has N+1 components,
+%   the polynomial is P(1)*X^N + ... + P(N)*X + P(N+1).
+%
+%   See also PolyRootDeflation, PolyRealRootDeflation.
+
+%   Copyright 2017 Junshen Xu   
 
 p = p(:).';
-n = size(p,2);
-r = [];  
-
-inz = find(p);
-if isempty(inz)
-    % All elements are zero
+firstNonZero = find(p, 1);
+lastNonZero = find(p, 1, 'last');
+if isempty(firstNonZero)
+    r = [];
     return
 end
-
-% Strip leading zeros and throw away.  
-% Strip trailing zeros, but remember them as roots at zero.
-nnz = length(inz);
-p = p(inz(1):inz(nnz));
-r = zeros(n-inz(nnz),1);  
-
-% Prevent relatively small leading coefficients from introducing Inf
-% by removing them.
+p = p(firstNonZero:lastNonZero);
+r = zeros(lastNonZero - firstNonZero - 1, 1);
 d = p(2:end)./p(1);
 while any(isinf(d))
     p = p(2:end);
     d = p(2:end)./p(1);
 end
 
-% Polynomial roots via a companion matrix
+% find the roots of a polynomial as the eigenvalue of a companion matrix
 n = length(p);
 if n > 1
     A = diag(ones(1,n-2),-1);
