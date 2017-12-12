@@ -123,7 +123,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Chebyshev interpolation
 - [x] Hermite interpolation
     - [x] Lagrange polynomial
-    - [x] Lagrange polynomial
+    - [x] Newton polynomial
 - [x] nearest interpolation
 - [x] linear interpolation
 - [x] cubic spline interpolation

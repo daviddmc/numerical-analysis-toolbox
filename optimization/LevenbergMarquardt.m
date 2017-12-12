@@ -4,7 +4,7 @@ function [ x, flag, iter ] = LevenbergMarquardt( fun, jac, tol1, tol2, maxIter, 
 
 n = length(x0);
 I = eye(n);
-tau = 1e-3;
+%tau = 1e-3;
 x = x0;
 v = 2;
 J = jac(x);

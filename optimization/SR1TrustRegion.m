@@ -10,8 +10,8 @@ g = grad(x0);
 f = fun(x0);
 B = eye(length(x0));
 while Norm(g) > tol
-    %s = DogLeg(g, delta, B);
-    s = CauchyPoint( g, delta, B );
+    s = DogLeg(g, delta, B);
+    %s = CauchyPoint( g, delta, B );
     sNorm = Norm(s);
     xNew = x + s;
     fNew = fun(xNew);
