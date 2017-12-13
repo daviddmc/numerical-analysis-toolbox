@@ -31,7 +31,7 @@ yout    = zeros(nBuffer,Ny);
 % ---------------------------
 % Coefficients values for dop54
 % ---------------------------
-[a,c,b,p,FSAL,bHat,pHat] = EmbeddedRKTableau('RKF45');
+[a,c,b,p,FSAL,bHat,pHat] = EmbeddedRKTableau('RKF78');
 er = b - bHat;
 q = min([p, pHat]);
 s = length(c);
