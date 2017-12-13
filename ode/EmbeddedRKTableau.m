@@ -1,6 +1,6 @@
-function [ A,c,b,bHat,p,pHat ] = EmbeddedRKTableau(method)
+function [ A,c,b,p,FSAL,bHat,pHat] = EmbeddedRKTableau(method)
 % EmbeddedRKTableau    Butcher tableau for embedded RK method.
-%   [A, c, b, bHat, p, pHat] = EmbeddedRKTableau(METHOD) generates the
+%   [A, c, b, p,bHat, pHat] = EmbeddedRKTableau(METHOD) generates the
 %   following Butcher tableau of a Embedded Runge-Kutta method:
 %       
 %         0|
@@ -14,8 +14,10 @@ function [ A,c,b,bHat,p,pHat ] = EmbeddedRKTableau(method)
 %           bHat(1) bHat(2) bHat(3)... bHat(s-1) bHat(s) 
 %
 %   where b and bHat are corresponding to a p-order and pHat-order RK
-%   method respectively. METHOD specifies the embedded RK method. The
-%   available method are:
+%   method respectively. FSAL is a boolean indicating whether A,b,c satisfy
+%   'first same as last' property.
+%   
+%   METHOD specifies the embedded RK method. The available method are:
 %       
 %       'DP54'  - (default) Dormand-Prince 5(4) method
 %       'RKF45' - Runge-Kutta-Fehlberg 4(5) method
@@ -41,6 +43,7 @@ if strcmpi(method, 'DP54')
     bHat = [5179/57600, 0, 7571/16695, 393/640, -92097/339200, 187/2100, 1/40];
     p = 5;
     pHat = 4;
+    FSAL = true;
 elseif strcmpi(method, 'RKF45')
     c = [0, 0.25, 3/8, 12/13, 1, 0.5];
     A = zeros(6,6);
@@ -53,6 +56,7 @@ elseif strcmpi(method, 'RKF45')
     bHat = [16/135, 0, 6656/12825, 28561/56430, -9/50, 2/55];
     p = 4;
     pHat = 5;
+    FSAL = false;
 elseif strcmpi(method, 'CK45')
     c = [0, 0.2, 0.3, 0.6, 1, 7/8];
     A = zeros(6,6);
@@ -65,6 +69,7 @@ elseif strcmpi(method, 'CK45')
     b = [2825/27648, 0, 18575/48384, 13525/55296, 277/14336, 0.25];
     p = 4;
     pHat = 5;
+    FSAL = false;
 elseif strcmpi(method, 'BS32')
     c = [0, 0.5, 0.75, 1];
     A = zeros(4, 4);
@@ -75,6 +80,7 @@ elseif strcmpi(method, 'BS32')
     bHat = [7/24, 1/4, 1/3, 1/8];
     p = 3;
     pHat = 2;
+    FSAL = true;
 elseif strcmpi(method, 'RKF12')
     c = [0, 0.5, 1];
     A = zeros(3,3);
@@ -84,6 +90,7 @@ elseif strcmpi(method, 'RKF12')
     bHat = [1/512, 255/256, 1/512];
     p = 1;
     pHat = 2;
+    FSAL = true;
 elseif strcmpi(method, 'HE12')
     c = [0, 1];
     A = zeros(2, 2);
@@ -92,6 +99,7 @@ elseif strcmpi(method, 'HE12')
     b = [1, 0];
     p = 1;
     pHat = 2;
+    FSAL = true;
 else
     error('method error');
 end

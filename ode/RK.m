@@ -1,4 +1,4 @@
-function [tout, yout] = EmbeddedRK(OdeFcn,tSpan,y)
+function [tout, yout] = RK(OdeFcn,tSpan,y)
 
 % ------- INPUT PARAMETERS
 % Time properties
@@ -18,9 +18,9 @@ hmax        = abs(tSpan(end) - tSpan(1));        % hmax is positive
 MaxNbrStep  = 1e5;
 FacL        = 1/0.2;
 FacR        = 1/10;
-Safe        = 0.9;                % WORK(2)
+Safe        = 0.9;%0.9;                % WORK(2)
 NormControl = false;
-Beta        = 0.04;%0.04;
+Beta        = 0;%0.04;
 
 nBuffer = 100;
 nout    = 0;
@@ -31,14 +31,12 @@ yout    = zeros(nBuffer,Ny);
 % ---------------------------
 % Coefficients values for dop54
 % ---------------------------
-[a,c,b,p,FSAL,bHat,pHat] = EmbeddedRKTableau('RKF45');
-er = b - bHat;
-q = min([p, pHat]);
+[a,c,b,p] = RKTableau('classic4');
 s = length(c);
 
 % Initialiation of internal parameters
 FacOld = 1e-4;
-Expo1  = 1/(q + 1) - Beta*0.75;             
+Expo1  = 1/(p + 1) - Beta*0.75;             
 K      = zeros(Ny,s);  % For DOP54 a is a matrix(7,7)
 % --------------
 % Integration step
@@ -81,16 +79,30 @@ for iter = 1:MaxNbrStep
     f0 = feval(OdeFcn,t+ch(j), y1);
     K(:,j) = f0; 
   end
+  yNew = y + K*bh';
   
-  if FSAL
-      yNew = y1;
-  else
-      yNew = y + K*bh';
+  ahHalf = ah / 2;
+  chHalf = ch / 2;
+  bhHalf = bh / 2;
+  for j = 2:s  
+    yHalf1 = y + K * ahHalf(:, j);
+    f0 = feval(OdeFcn,t+chHalf(j), yHalf1);
+    K(:,j) = f0; 
   end
+  yHalf1 = y + K * bhHalf';
   
-  %ySti = y1(:,6);  
-  % K2 in Hairer fortran -->  K(:,7)
-  K4   = h * K * er';      %  K4 ~= K(:,4)
+  tphh = t + h /2;
+  K(:, 1) = feval(OdeFcn,tphh, yHalf1);
+
+  for j = 2:s
+      yHalf2 = yHalf1 + K * ahHalf(:, j);
+      f0 = feval(OdeFcn,tphh+chHalf(j), yHalf2);
+      K(:,j) = f0;
+  end
+
+  yHalf2 = yHalf1 + K * bhHalf';
+  K4 = (yHalf2 - yNew) / (2^p - 1);
+  yNew = yHalf2 + K4;
   
   tph  = t + h;
   % --- ERROR ESTIMATION   (450)
@@ -111,7 +123,7 @@ for iter = 1:MaxNbrStep
   hNew  = h/Fac;   
   if(Err < 1.D0)
     % --- STEP IS ACCEPTED          (470 Hairer)
-    StepAccNbr = StepAccNbr+ 1;
+    StepAccNbr = StepAccNbr + 1;
     FacOld = max(Err,1e-4);
     % ------- STIFFNESS DETECTION                     675
     
@@ -125,14 +137,8 @@ for iter = 1:MaxNbrStep
     tout(nout)   = t;
     yout(nout,:) = y';
     
-    
     t = tph;
     y = yNew;  
-    if FSAL
-        K(:,1) = K(:,s);
-    else
-        K(:,1) = feval(OdeFcn,t,y);
-    end
     
     if t == tEnd  
       Done = true;
@@ -143,15 +149,15 @@ for iter = 1:MaxNbrStep
     end
     if Reject
       hNew = tDir*min(abs(hNew),abs(h));
-    end
-	     
-    Reject = false;
-	
+      Reject = false;
+    end	     
+    
   else % --- STEP IS REJECTED      depuis 457    (769 Hairer)  
     hNew = h/min(FacL,Fac11/Safe);
     Reject = true;    
   end
   h = hNew;
+  K(:,1) = feval(OdeFcn,t,y);
 end  % main loop
 
 nout = nout + 1;
