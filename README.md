@@ -170,12 +170,16 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### Ordinary Differential Equation
 
-- [x] Euler method
-- [x] Runge - Kutta method
-    - [x] 2 order RK (midepoint method)
-    - [x] 4 order RK
-    - [x] Runge - Kutta - Fehlberg
-- [x] Adams-Bashforth four-step method with predictor-corrector
+#### initail value problems
+
+- [ ] Runge - Kutta method
+    - [ ] classic
+    - [ ] embedded
+    - [ ] implicit
+- [ ] Linear multistep method
+    - [x] Adams-Bashforth four-step method with predictor-corrector
+
+#### boundary value problems
 
 ### Partial Differential Equation
 
