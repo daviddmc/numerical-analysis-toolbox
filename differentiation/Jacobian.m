@@ -65,15 +65,15 @@ dFdy = Fdiff * diag(1 ./ del);
 absFdelRm = abs(Fdel((0:ny-1)*nF + Rowmax)); 
 
 % Adjust fac for next call to numjac.
-absFty = abs(Fy);
-absFtyRm = absFty(Rowmax);              % not a col vec if absFty scalar
-absFtyRm = absFtyRm(:)';                % ensure that absFtyRm is a row vector
+absFy = abs(Fy);
+absFyRm = absFy(Rowmax);              % not a col vec if absFty scalar
+absFyRm = absFyRm(:)';                % ensure that absFtyRm is a row vector
 absFdelRm = absFdelRm(:)';              % ensure that absFdelRm is a row vector
-j = ((absFdelRm ~= 0) & (absFtyRm ~= 0)) | (Difmax == 0);
+j = ((absFdelRm ~= 0) & (absFyRm ~= 0)) | (Difmax == 0);
 
 if any(j)
   ydel = y;
-  Fscale = max(absFdelRm,absFtyRm);
+  Fscale = max(absFdelRm,absFyRm);
 
   % If the difference in f values is so small that the column might be just
   % roundoff error, try a bigger increment. 
@@ -103,7 +103,7 @@ if any(j)
         dFdy(:,k) = tmp;
   
         % Adjust fac for the next call to numjac.
-        fscale = max(abs(fdel(rowmax)),absFty(rowmax));
+        fscale = max(abs(fdel(rowmax)),absFy(rowmax));
           
         if difmax <= bl*fscale
           % The difference is small, so increase the increment.

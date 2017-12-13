@@ -201,9 +201,13 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ## Demo
 
-- Runge effect
-- Minimize error of polynomial interpolation using Chebyshev interpolation
+- Runge phenomenon
+- minimize error of polynomial interpolation using Chebyshev interpolation
 - optimal relaxation factor for SOR
+- round-off error in numerical differentiation
+- common orthogonal polynomials
+- Chebyshev acceleration in linear iteration
+- Gershgorin disc theorem
 
 ---
 
