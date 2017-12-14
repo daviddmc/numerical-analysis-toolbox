@@ -177,6 +177,9 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [ ] embedded
     - [ ] implicit
 - [ ] Linear multistep method
+    - [ ] Adams methods
+    - [ ] implicit Adams methods
+    - [ ]
     - [x] Adams-Bashforth four-step method with predictor-corrector
 
 #### boundary value problems
