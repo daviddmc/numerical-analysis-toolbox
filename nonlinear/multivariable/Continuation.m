@@ -1,6 +1,13 @@
-function x = Continuation( fun, jac, N, x0)
-%BROYDEN Summary of this function goes here
-%   Detailed explanation goes here
+function x = Continuation( fun, jac, x0, N)
+% Continuation   homotopy continuation method.
+%   X = Continuation(FUN, JAC X0, N) starts at the column vector X0 and 
+%   tries to solve the equations in FUN. FUN accepts input X and returns 
+%   a column vector of equation values FUN evaluated at X. JAC accepts 
+%   input X and returns the Jacobian matrix at X. N is the number of steps.
+%
+%   See also Newtons, Broyden.
+
+%   Copyright 2017 Junshen Xu
 
 h = 1/N;
 b = -h*fun(x0);

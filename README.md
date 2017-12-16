@@ -116,7 +116,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] matrix balance
 - [x] singular value decomposition
 
-### Interpolation
+### 4.Interpolation
 
 #### 1D
 
@@ -131,15 +131,15 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] nearest interpolation
 - [x] linear interpolation
 - [x] cubic spline interpolation
-    -[x] natural end conditions
-    -[x] not-a-knot end conditions
+    - [x] natural end conditions
+    - [x] not-a-knot end conditions
 
 #### 2D
 
 - [ ] nearest interpolation
 - [ ] linear interpolation
 
-### Function Approximation
+### 5.Function Approximation
 
 #### orthogonal polynomials
 
@@ -166,7 +166,9 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] base 2
 - [x] base 3
 
-### Numerical Integration and Differentiation
+### 6.Numerical Integration 
+
+#### 1d
 
 - [x] trapezoid
 - [x] Simpson 
@@ -176,6 +178,14 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [x] Gauss-Hermite
     - [x] Gauss-Laguerre
 - [x] Romberg
+
+#### 2d
+
+### 7.Numerical Differentiation
+
+#### differentiation
+
+#### gradient and jacobian
 
 ### Ordinary Differential Equation
 
