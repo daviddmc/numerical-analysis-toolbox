@@ -2,6 +2,10 @@ function E = Eigen( A )
 % Eigen    Eigenvalues.
 %    E = Eigen(A) produces a column vector E containing the eigenvalues of 
 %    a square matrix A.
+%
+%   See also SymEigen
+
+%   Copyright 2017 Junshen Xu
 
 A = HessenbergReduction(A);
 

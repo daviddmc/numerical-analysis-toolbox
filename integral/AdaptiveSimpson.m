@@ -1,4 +1,4 @@
-function I = AdaptiveSimpson( f,a,b,epsilon )
+function I = AdaptiveSimpson( f, a, b, tol)
 %ADAPTIVESIMPSON Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -7,11 +7,11 @@ m = (a+b)/2;
 sLeft = S(f, a, m);
 sRight = S(f, m, b);
 
-if(abs(s - sLeft - sRight) < 10 * epsilon)
+if(abs(s - sLeft - sRight) < 10 * tol)
     I = sLeft + sRight;
 else
-    I = AdaptiveSimpson(f, a, m, epsilon/2) + ...
-        AdaptiveSimpson(f, m, b, epsilon/2);
+    I = AdaptiveSimpson(f, a, m, tol/2) + ...
+        AdaptiveSimpson(f, m, b, tol/2);
 end
 
 end

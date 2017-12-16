@@ -29,7 +29,8 @@ elseif(type == 2)
     if(isvector(X))
         normX = sqrt(sum(abs(X).^2));
     else
-        normX = norm(X, 2);
+        s = SVD(X);
+        normX = s(1);
     end
 elseif(type == inf)
     if(isvector(X))
@@ -39,6 +40,12 @@ elseif(type == inf)
     end
 elseif(type == 'fro')
     normX = sqrt(sum(sum(abs(X).^2)));
+elseif(isnumeric(type))
+    if isvector(X)
+        normX = (sum(abs(X))^type)^(1/type);
+    else
+        error('The only matrix norms available are 1, 2, inf, and ''fro''.');
+    end
 else
     error('type of norm should be 1, 2, inf or ''fro''.');
 end

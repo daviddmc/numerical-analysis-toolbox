@@ -10,6 +10,5 @@ B = [B; zeros(size(L, 1), size(B,2))];
 
 X = LS(A, B);
 
-
 end
 

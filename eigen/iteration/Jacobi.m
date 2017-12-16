@@ -6,6 +6,14 @@ function [A, J] = Jacobi(A, tol)
 %   [D, J] = Jacobi(A) produces a diagonal matrix D of eigenvalues and a 
 %   unitary matrix J so that D = J'*A*J, columns of J are the corresponding
 %   eigenvectors.
+%
+%   See also
+
+%   Copyright 2017 Junshen Xu
+
+if ~exist('tol','var')
+    tol = 1e-10;
+end
 
 n = size(A, 1);
 delta = Norm(A - diag(diag(A)), 'fro') / n;
@@ -58,7 +66,7 @@ while(delta > tol)
     delta = delta / n;
 end
 
-if nargou < 2
+if nargout < 2
     A = real(diag(A));
 end
 
