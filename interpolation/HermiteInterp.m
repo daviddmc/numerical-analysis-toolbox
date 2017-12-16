@@ -1,6 +1,17 @@
 function yq = HermiteInterp( x, y, yp, xq, method)
-%HERMITEINTERP Summary of this function goes here
-%   Detailed explanation goes here
+% HermiteInterp    1D Hermite polynomial interpolation.
+%   Yq = HermiteInterp(X, Y, Yp, Xq) interpolates to find Yq, the values 
+%   of the underlying function F(X) with Yp = F'(X) at the query points 
+%   Xq using Hermite polynomial interpolation.
+%
+%   Yq = HermiteInterp(X, Y, Yp, Xq, METHOD) specifies the algorithm.
+%   The available methods are:
+%       'Netwon' (default)
+%       'Lagrange'
+%
+%   See also
+
+%   Copyright 2017 Junshen Xu
 
 if(strcmpi(method, 'Lagrange'))
     yq = HermiteLagrange(x, y, yp, xq);

@@ -1,5 +1,13 @@
 function yq = NearestInterp(x, y, xq)
-    
+% NearestInterp    1D Nearest interpolation.
+%   Yq = NearestInterp(X, Y, Xq) interpolates to find Yq, the values of the 
+%   underlying function F(X) at the query points Xq using nearest
+%   interpolation.
+%
+%   See also
+
+%   Copyright 2017 Junshen Xu
+
     [x, idx] = sort(x(:));
     y = y(idx);
     

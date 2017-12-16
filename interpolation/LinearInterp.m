@@ -1,5 +1,13 @@
 function yq = LinearInterp(x, y, xq)
-    
+% LinearInterp    1D Linear interpolation.
+%   Yq = LinearInterp(X, Y, Xq) interpolates to find Yq, the values of the 
+%   underlying function F(X) at the query points Xq using linear
+%   interpolation.
+%
+%   See also
+
+%   Copyright 2017 Junshen Xu
+
     [x, idx] = sort(x(:));
     y = y(idx);
     

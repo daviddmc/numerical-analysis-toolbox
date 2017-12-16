@@ -1,6 +1,18 @@
 function yq = PolyInterp(x, y, xq, method)
-%POLYINTERP Summary of this function goes here
-%   Detailed explanation goes here
+% PolyInterp    1D polynomial interpolation.
+%   Yq = PolyInterp(X, Y, Xq) interpolates to find Yq, the values of the 
+%   underlying function F(X) at the query points Xq using  polynomial
+%   interpolation.
+%
+%   Yq = PolyInterp(X, Y, Xq, METHOD) specifies the algorithm.
+%   The available methods are:
+%       'Netwon' (default)
+%       'Lagrange'
+%       'Neville'
+%
+%   See also
+
+%   Copyright 2017 Junshen Xu
 
 if(~exist('method', 'var') || isempty(method))
     method = 'newton';

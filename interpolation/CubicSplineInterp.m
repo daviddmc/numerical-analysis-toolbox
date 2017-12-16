@@ -1,14 +1,22 @@
 function yq = CubicSplineInterp( x, y, xq, boundary)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+% CubicSplineInterp    1D cubic spline interpolation.
+%   Yq = CubicSplineInterp(X, Y, Xq) interpolates to find Yq, the values 
+%   of the underlying function F(X) at the query points Xq using cubic 
+%   spline interpolation.
+%
+%   Yq = CublicSplineInterp(X, Y, Xq, BOUNDARY) specifies the boundary 
+%   conditions. The available boundary conditions are:
+%
+%       'natural'  - (default) natural boundary conditions
+%       'notaknot' - not-a-knot end conditions
+%
+%   See also
+
+%   Copyright 2017 Junshen Xu
 
 n = length(x);
 if(~exist('boundary', 'var') || isempty(boundary))
-    if(n < 4)
-        boundary = 'natural';
-    else
-        boundary = 'notaknot';
-    end
+    boundary = 'natural';
 end
 
 if(n < 2)
