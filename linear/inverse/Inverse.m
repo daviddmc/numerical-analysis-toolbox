@@ -18,7 +18,7 @@ function A = Inverse(A, method)
 CheckSquareMatrix(A);
 n = size(A, 1);
 
-if(~exist('method','var') || isemtpy(method))
+if(~exist('method','var') || isempty(method))
     method = 'gauss';
 end
 
@@ -33,7 +33,15 @@ elseif strncmpi(method, 'qr', 1)
     A = TriangleInverse(R, 'upper') * Q';
 
 elseif strncmpi(method, 'svd', 1)
-    error('not implemented yet');
+    [S,U,V] = SVD(A, 0);
+    S = diag(S);
+    tol = max(size(A)) * eps(norm(S,inf));
+    r1 = sum(S > tol)+1;
+    V(:,r1:end) = [];
+    U(:,r1:end) = [];
+    S(r1:end) = [];
+    S = 1./S(:);
+    A = (V.*S.')*U';
 elseif strncmpi(method, 'GaussJordan', 1)
 
     rowSwap = zeros(2, n);

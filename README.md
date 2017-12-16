@@ -41,7 +41,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] Gauss-Jordan method with complete pivoting
 - [x] triangle inverse
 - [x] QR decomposition
-- [ ] SVD
+- [x] SVD (Pseudo Inverse)
 - [x] LU decomposition
 
 #### iterative method for solving linear system
@@ -78,7 +78,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 #### multivariable
 
 - [ ] Newton method
-- [x] Broyden method
+- [ ] Broyden method
 - [ ] solving nonlinear LS problem
 
 #### polynomial
@@ -100,7 +100,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] power iteration
 - [x] inverse iteration (with shift)
 - [x] Rayleigh quotient iteration
-- [x] deflation method
+- [x] Jacobi method
 
 #### QR iteration
 
@@ -108,27 +108,36 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [x] double shift
 - [x] symmetric
 
-#### others
+#### pratical methods
 
-- [x] Jacobi method
-- [x] balances
+- [x] eigenvalue
+- [x] eigenpair of symmetric matrix
+- [x] deflation method
+- [x] matrix balance
 - [x] singular value decomposition
 
 ### Interpolation
+
+#### 1D
 
 - [x] polynomial interpolation
     - [x] Lagrange polynomial
     - [x] Newton polynomial
     - [x] Neville algorithm
-    - [x] Chebyshev interpolation
 - [x] Hermite interpolation
     - [x] Lagrange polynomial
     - [x] Newton polynomial
+- [x] Chebyshev interpolation
 - [x] nearest interpolation
 - [x] linear interpolation
 - [x] cubic spline interpolation
     -[x] natural end conditions
     -[x] not-a-knot end conditions
+
+#### 2D
+
+- [ ] nearest interpolation
+- [ ] linear interpolation
 
 ### Function Approximation
 
@@ -180,7 +189,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [ ] Adams methods
     - [ ] implicit Adams methods
     - [ ]
-    - [x] Adams-Bashforth four-step method with predictor-corrector
+    - [ ] Adams-Bashforth four-step method with predictor-corrector
 
 #### boundary value problems
 
@@ -199,10 +208,10 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 #### nonlinear least square
 
 - [ ] Gauss-Newton
-- [x] Levenberg-Marquardt
+- [ ] Levenberg-Marquardt
 
 #### derivative-free method
-- [x] Nelder - Mead
+- [ ] Nelder - Mead
 
 ---
 
