@@ -63,6 +63,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
     - [ ] CGS
     - [ ] BiCGstab
     - [ ] LSQR
+    - [ ] preconditioning
 
 ### 2.Nonlinear Equation and System
 
@@ -77,8 +78,9 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 #### multivariable
 
-- [ ] Newton method
-- [ ] Broyden method
+- [x] Newton method
+- [x] Broyden method
+- [x] homotopy continuation method
 - [ ] solving nonlinear LS problem
 
 #### polynomial
@@ -187,7 +189,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 #### gradient and jacobian
 
-### Ordinary Differential Equation
+### 8.Ordinary Differential Equation
 
 #### initail value problems
 
@@ -202,17 +204,13 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 #### boundary value problems
 
-### Partial Differential Equation
+### 9.Partial Differential Equation
 
 - [ ] Poisson equation
 - [ ] heat equation
 - [ ] wave equation
 
-### Stochastic Method
-
-- [x] linear congruential generator
-
-### Optimization
+### 10.Optimization
 
 #### nonlinear least square
 
