@@ -188,7 +188,6 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [ ] Linear multistep method
     - [ ] Adams methods
     - [ ] implicit Adams methods
-    - [ ]
     - [ ] Adams-Bashforth four-step method with predictor-corrector
 
 #### boundary value problems
@@ -211,6 +210,7 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 - [ ] Levenberg-Marquardt
 
 #### derivative-free method
+
 - [ ] Nelder - Mead
 
 ---
