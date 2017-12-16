@@ -7,11 +7,15 @@ basic numerical analysis algorithms implemented in MATLAB for coursework.
 
 ### 1.Linear System
 
-#### matrix functions
+#### basic
 
-- [x] norm (1,2,infinity,Fibonacci)
+- [x] norm 
+    - [x] vector norm (p,+inf,-inf)
+    - [x] matrix norm (1,2,inf,'fro')
 - [x] condition number
-- [ ] rank
+- [x] rank
+    - [x] QR
+    - [x] SVD
 
 #### direct methods for solving linear system
  

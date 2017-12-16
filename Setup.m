@@ -1,4 +1,4 @@
-addpath(genpath('basic'));
+addpath(genpath('helper'));
 addpath(genpath('demo'));
 addpath(genpath('eigen'));
 addpath(genpath('integral'));
