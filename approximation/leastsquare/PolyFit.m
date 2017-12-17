@@ -4,6 +4,10 @@ function p = PolyFit( x,y,n )
 %   N that fits the data Y best in a least-squares sense. P is a row vector
 %   of length N+1 containing the polynomial coefficients in desending
 %   powers, P(1)*X^N + P(2)*X^(N-1) + ... + P(N)*X + P(N+1).
+%
+%   See also
+
+%   Copyright 2017 Junshen Xu
 
 x = x(:);
 y = y(:);
@@ -15,7 +19,7 @@ for j = n:-1:1
 end
 
 % Solve ls problem.
-p = LS( V, y, 'QR');
+p = LS(V, y);
 
 end
 

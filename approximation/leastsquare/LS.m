@@ -1,6 +1,26 @@
 function X = LS( A, B, method)
-%LS Summary of this function goes here
-%   Detailed explanation goes here
+%LS    least square problem.
+%   X = LS(A, B) solves the least square problem 
+%       
+%       argmin_x||A*x-B||_2
+%
+%   where A is a M-by-N matrix, which may be rank-deficient. If A is
+%   rank-deficient. X is the solution of the corresponding normal equaiton
+%   that has the smallest norm.
+%
+%   X = LS(A, B, METHOD) specifies the method. The available
+%   methods are:
+%
+%       QR     - (default) QR decomposition
+%       SVD    - singular value decomposition
+%
+%   See also 
+
+%   Copyright 2017 Junshen Xu
+
+if ~exist('method','var')
+    method = 'qr';
+end
 
 if strncmpi(method, 'svd', 1)
     [S,U,V] = SVD(A, 0);
@@ -27,7 +47,7 @@ elseif strncmpi(method, 'qr', 1)
         X(perm,1:k) = P * (S' \ z);
     end
 else
-    error(' ')
+    error('method error')
 end
 
 
